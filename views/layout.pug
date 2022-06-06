@@ -2,7 +2,21 @@ doctype html
 html
   head
       block head
-        title="Express Starter App"
-        link(rel='stylesheet' href='/stylesheets/reset.css')
+        title="Moetaku"
+        link(rel='stylesheet' href='/stylesheets/layout.css')
   body
+    nav(class='navbar')
+      a(class='navbar_icon' href='/')
+        img(id='logo' src="https://fontmeme.com/permalink/220607/3df6c0f24f208f52497c8a0c21e62a4f.png")
+      div(class='navbar_center')
+      div
+        if locals.authenticated
+          span(class='nav_button') Welcome #{user.firstName}!
+            form(action='/users/logout' method='post')
+              button(type='submit') Logout
+        else
+          span(class='nav_button')
+            a(href='/users/login') Login
+            a(href='/users/signup') Sign Up
+
     block content

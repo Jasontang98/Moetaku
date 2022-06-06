@@ -25,3 +25,30 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+.navbar{
+width:100%;
+height:50px;
+display: grid;
+background-color:rgb(190, 196, 69);
+grid-template-columns: 1fr 3fr 1fr;
+grid-template-areas:
+"left center right"
+}
+
+.navbar_icon{
+  grid-area:left;
+}
+
+.nav_button{
+  grid-area:right;
+}
+
+.navbar_center{
+  width:500px;
+
+}
+
+#logo{
+  width:200px;
+}
