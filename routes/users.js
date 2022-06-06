@@ -2,14 +2,17 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../db/models');
+
 const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', async (req, res, next) => {
+  const users = await User.findAll();
+  res.send(users);
 });
 
+//USER SIGN UP
 router.get('/signup', csrfProtection, (req, res, next) => {
   const user = db.User.build();
   res.render('user-signup', {
@@ -102,5 +105,57 @@ router.post('/signup', csrfProtection, userValidators,
       });
     }
   }));
+
+  //USER LOG IN
+  router.get('/login', csrfProtection, (req, res) => {
+    res.render('user-login', {
+      title: 'Login',
+      csrfToken: req.csrfToken(),
+    });
+  });
+
+  const loginValidators = [
+    check('username')
+      .exists({ checkFalsy: true })
+      .withMessage('Please enter your username.'),
+    check('password')
+      .exists({ checkFalsy: true })
+      .withMessage('Please enter your password.'),
+  ];
+
+  router.post('/login', csrfProtection, loginValidators,
+    asyncHandler(async (req, res) => {
+      const {
+        username,
+        password,
+      } = req.body;
+
+      let errors = [];
+      const validatorErrors = validationResult(req);
+
+      if (validatorErrors.isEmpty()) {
+
+        const user = await db.User.findOne({ where: { username } });
+        if (user !== null) {
+          const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+          if (passwordMatch) {
+            return res.redirect('/');
+          }
+        }
+        errors.push('Please enter a valid username and password.');
+      } else {
+        errors = validatorErrors.array().map((error) => error.msg);
+      }
+
+      res.render('user-login', {
+        title: 'Login',
+        username,
+        errors,
+        csrfToken: req.csrfToken(),
+      });
+    }));
+
+
+
 
 module.exports = router;
