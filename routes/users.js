@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { csrfProtection, asyncHandler } = require('./utils');
+const bcrypt = require('bcryptjs');
 const db = require('../db/models');
+const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
 
 /* GET users listing. */
@@ -34,7 +35,7 @@ const userValidators = [
     .withMessage('Please enter your username.')
     .isLength({ max: 20 })
     .withMessage('Maximum username length is 20 characters.'),
-  check('emailAddress')
+  check('email')
     .exists({ checkFalsy: true })
     .withMessage('Please enter your email.')
     .isLength({ max: 50 })
@@ -42,13 +43,13 @@ const userValidators = [
     .isEmail()
     .withMessage('Please enter a valid email address.')
     .custom((value) => {
-      return db.User.findOne({ where: { emailAddress: value } })
+      return db.User.findOne({ where: { email: value } })
         .then((user) => {
           if (user) {
             return Promise.reject('The provided Email Address is already in use by another account');
           }
         });
-    }),  
+    }),
   check('password')
     .exists({ checkFalsy: true })
     .withMessage('Please enter a valid password.')
@@ -67,13 +68,13 @@ const userValidators = [
     }),
 ];
 
-router.post('/user/signup', csrfProtection, userValidators,
+router.post('/signup', csrfProtection, userValidators,
   asyncHandler(async (req, res) => {
     const {
       firstName,
       lastName,
       username,
-      emailAddress,
+      email,
       password,
     } = req.body;
 
@@ -81,12 +82,14 @@ router.post('/user/signup', csrfProtection, userValidators,
       firstName,
       lastName,
       username,
-      emailAddress,
+      email,
     });
 
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      user.hashedPassword = hashedPassword;
       await user.save();
       res.redirect('/');
     } else {
