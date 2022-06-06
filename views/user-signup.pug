@@ -1,0 +1,15 @@
+extends layout.pug 
+include utils.pug
+
+block content
+  form(action='/users/signup' method='post')
+    input(type='hidden' name='_csrf' value=csrfToken)
+    +field('First Name', 'firstName', user.firstName)
+    +field('Last Name', 'lastName', user.lastName)
+    +field('Username', 'username', user.username)
+    +field('Email Address', 'emailAddress', user.emailAddress)
+    +field('Password', 'password', user.password, 'password')
+    +field('Confirm Password', 'confirmPassword', '', 'password')
+    div(class='py-4')
+      button(type='submit' id='signup') Sign Up
+      a(href='/' id='cancel') Cancel
