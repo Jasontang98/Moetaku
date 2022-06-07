@@ -4,6 +4,7 @@ const loginUser = (req, res, user) => {
   req.session.auth = {
     userId: user.id,
   };
+  req.session.save(function(){res.redirect('/')})
 };
 
 const restoreUser = async (req, res, next) => {
@@ -33,6 +34,8 @@ const restoreUser = async (req, res, next) => {
 
 const logoutUser = (req, res) => {
   delete req.session.auth;
+  res.clearCookie("_csrf");
+  res.clearCookie("moetaku.sid", { path: "/" });
 };
 
 const requireAuth = (req, res, next) => {

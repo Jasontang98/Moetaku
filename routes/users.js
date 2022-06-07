@@ -141,7 +141,8 @@ router.post('/signup', csrfProtection, userValidators,
           const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
           if (passwordMatch) {
             loginUser(req, res, user);
-            return res.redirect('/');
+            return;
+            // res.redirect('/');
           }
         }
         errors.push('Please enter a valid username and password.');
@@ -159,7 +160,7 @@ router.post('/signup', csrfProtection, userValidators,
 
     router.post('/logout', (req, res) => {
       logoutUser(req, res);
-      res.redirect('/');
+      return res.redirect('/');
     });
 
 
