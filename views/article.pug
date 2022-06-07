@@ -15,5 +15,5 @@ block content
     div
     if locals.authenticated
         form(id='comment_form')
-            textarea(id=`${id}-${user_id}-comment`, name="comment", cols="30", rows="10")
-            button(id="create_button") Submit 
+            textarea(id="comment_text", name="comment", cols="30", rows="10")
+            button(id=`${id}-${user_id}-comment` class='comment_button') Submit

@@ -103,12 +103,8 @@ router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
 // COMMENTS BELOW
 
 router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-    // const { body, article_id, user_id } = req.body;
+    const { body, article_id, user_id } = req.body;
     const comment = await db.Comment.create( { body, article_id, user_id } );
-    // comment.body = body;
-    // comment.article_id = article_id;
-    // comment.user_id = user_id;
-
 
 }))
 
