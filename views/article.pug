@@ -1,9 +1,19 @@
 extends layout.pug
 
 block content
+    script(src='/javascripts/commentCreate.js' type='module')
+    script(src='/javascripts/commentEdit.js' type='module')
+    script(src='/javascripts/commentDelete.js' type='module')
     h1= title
     p= body
     if(isAuthor)
         a(href=`/articles/${id}/edit` id='article_edit') Edit
         form(action=`/articles/${id}/delete` method='post')
             button(type='submit' id='article_delete') Delete
+
+    h2 Comments
+    div
+    if locals.authenticated
+        form(id='comment_form')
+            textarea(id=`${id}-${user_id}-comment`, name="comment", cols="30", rows="10")
+            button(id="create_button") Submit 
