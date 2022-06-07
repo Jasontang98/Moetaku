@@ -22,42 +22,46 @@ const userValidators = [
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const articleId = req.params.id;
     const article = await db.Article.findByPk(articleId);
-    const { title, body } = article;
-    res.render('article', { title, body })
+    const { id, title, body, user_id } = article;
+    const { userId } = req.session.auth;
+    let isAuthor = false;
+    if (userId === user_id) isAuthor = true;
+    res.render('article', { id, title, body, isAuthor })
 
 }))
 
 router.get('/create', requireAuth, csrfProtection, (req, res) => {
     const article = db.Article.build();
+
     res.render('article-create', {
         title: 'Create',
         article,
-        csrfToken: req.csrfToken(),
+        csrfToken: req.csrfToken()
     });
 
 })
 
-router.post('/create', requireAuth, csrfProtection, userValidators,
-    asyncHandler(async (req, res) => {
-        const { title, body } = req.body;
+router.post('/create', requireAuth, csrfProtection, userValidators, asyncHandler(async (req, res) => {
+    const { title, body } = req.body;
+    const { userId } = req.session.auth;
 
-        const article = db.Article.build({ title, body });
+    const article = db.Article.build({ title, body, user_id: userId });
 
-        const validatorErrors = validationResult(req);
+    const validatorErrors = validationResult(req);
 
-        if (validatorErrors.isEmpty()) {
-            await article.save();
-            res.redirect(`/articles/${article.id}`);
-        } else {
-            const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('article-create', {
-                title: 'Create',
-                article,
-                errors,
-                csrfToken: req.csrfToken(),
-            });
-        }
-    }));
+    if (validatorErrors.isEmpty()) {
+        await article.save();
+        res.redirect(`/articles/${article.id}`);
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('article-create', {
+            title: 'Create',
+            article,
+            errors,
+            csrfToken: req.csrfToken(),
+        });
+    }
+}));
 
 router.get('/:id(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
     const articleId = req.params.id;
@@ -67,29 +71,34 @@ router.get('/:id(\\d+)/edit', requireAuth, csrfProtection, asyncHandler(async (r
         article,
         csrfToken: req.csrfToken(),
     });
+}));
+
+router.post('/:id(\\d+)/edit', requireAuth, csrfProtection, userValidators, asyncHandler(async (req, res) => {
+    const articleId = req.params.id;
+    const article = await db.Article.findByPk(articleId);
+
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+        await article.update({ title: req.body.title, body: req.body.body })
+        res.redirect(`/articles/${article.id}`);
+    } else {
+        const errors = validatorErrors.array().map((error) => error.msg);
+        res.render('article-edit', {
+            title: 'Edit',
+            article,
+            errors,
+            csrfToken: req.csrfToken(),
+        });
+    }
+}));
+
+router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
+    const articleId = req.params.id;
+    const article = await db.Article.findByPk(articleId);
+    await article.destroy();
+    res.redirect(`/`);
 }))
-
-router.post('/:id(\\d+)/edit', requireAuth, csrfProtection, userValidators,
-    asyncHandler(async (req, res) => {
-        const articleId = req.params.id;
-        const article = await db.Article.findByPk(articleId);
-
-        const validatorErrors = validationResult(req);
-
-        if (validatorErrors.isEmpty()) {
-            await article.update({ title: req.body.title, body: req.body.body })
-            res.redirect(`/articles/${article.id}`);
-        } else {
-            const errors = validatorErrors.array().map((error) => error.msg);
-            res.render('article-edit', {
-                title: 'Edit',
-                article,
-                errors,
-                csrfToken: req.csrfToken(),
-            });
-        }
-    }));
-
 
 
 
