@@ -3,6 +3,7 @@ html
   head
       block head
         title="Moetaku"
+        link(rel="icon" href="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
         link(rel='stylesheet' href='/stylesheets/layout.css')
   body
     nav(class='navbar')
@@ -21,7 +22,7 @@ html
               button(type='submit') Logout
         else
           span(class='nav_button')
-            a(href='/users/login') Login
-            a(href='/users/signup') Sign Up
+            a(id="nav_login" href='/users/login') Login
+            a(id="nav_signup" href='/users/signup') Sign Up
 
     block content

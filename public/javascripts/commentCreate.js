@@ -16,5 +16,13 @@ createButton.addEventListener("click", async(e) => {
         })
     });
     const data = await res.json()
-    console.log(data);
+    if (data.message === 'Success!') {
+        const commentContainer = document.getElementById('comment_container');
+        const newComment = document.createElement('div');
+        newComment.innerText = data.comment.body;
+        commentContainer.appendChild(newComment);
+
+        const textBox = document.getElementById('comment_text');
+        textBox.value = '';
+    }
 });

@@ -12,7 +12,9 @@ block content
             button(type='submit' id='article_delete') Delete
 
     h2 Comments
-    div
+    div(id='comment_container')
+         each comment in comments
+            div= comment.body
     if locals.authenticated
         form(id='comment_form')
             textarea(id="comment_text", name="comment", cols="30", rows="10")

@@ -26,8 +26,13 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const { userId } = req.session.auth;
     let isAuthor = false;
     if (userId === user_id) isAuthor = true;
-    res.render('article', { id, title, body, isAuthor, user_id })
 
+    const comments = await db.Comment.findAll({
+        where:{
+            article_id: articleId
+        }
+    });
+    res.render('article', { id, title, body, isAuthor, user_id, comments })
 }))
 
 router.get('/create', requireAuth, csrfProtection, (req, res) => {
@@ -104,8 +109,9 @@ router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
 
 router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const { body, article_id, user_id } = req.body;
-    const comment = await db.Comment.create( { body, article_id, user_id } );
+    const comment = await db.Comment.create({ body, article_id, user_id });
 
+    res.json({message: 'Success!', comment})
 }))
 
 module.exports = router;
