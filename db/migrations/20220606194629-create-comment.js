@@ -10,7 +10,7 @@ module.exports = {
       },
       body: {
         allowNull: false,
-        type: Sequelize.TEXT
+        type: Sequelize.STRING(250)
       },
       article_id: {
         type: Sequelize.INTEGER,
