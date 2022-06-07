@@ -22,7 +22,7 @@ router.get('/signup', csrfProtection, (req, res, next) => {
     csrfToken: req.csrfToken(),
   });
 });
-
+console.log("helloeddiesillybillylittlebunny")
 const userValidators = [
   check('firstName')
     .exists({ checkFalsy: true })
