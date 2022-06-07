@@ -6,10 +6,15 @@ html
         link(rel='stylesheet' href='/stylesheets/layout.css')
   body
     nav(class='navbar')
-      a(class='navbar_icon' href='/')
-        img(id='logo' src="https://fontmeme.com/permalink/220607/a819adcc4be5013f07daf0bf37d3599c.png")
-      div(class='navbar_center')
-      div
+      div(class='nav_left')
+        a(class='navbar_icon' href='/')
+          img(id='logo' src="https://fontmeme.com/permalink/220607/a819adcc4be5013f07daf0bf37d3599c.png")
+      div(class='nav_center')
+        if locals.authenticated
+          span(class='nav_center')
+             a(href='/articles/create') Create
+
+      div(class='nav_right')
         if locals.authenticated
           span(class='nav_button') Welcome #{user.firstName}!
             form(action='/users/logout' method='post')

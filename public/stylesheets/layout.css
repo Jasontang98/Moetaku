@@ -36,17 +36,23 @@ grid-template-areas:
 "left center right"
 }
 
-.navbar_icon{
+.nav_left{
   grid-area:left;
 }
 
-.nav_button{
-  grid-area:right;
+.nav_center{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  grid-area:center;
+
 }
 
-.navbar_center{
-  width:500px;
-
+.nav_right{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  grid-area:right;
 }
 
 #logo{
