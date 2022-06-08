@@ -11,9 +11,11 @@ html
         a(class='navbar_icon' href='/')
           img(id='logo' src="https://fontmeme.com/permalink/220607/a819adcc4be5013f07daf0bf37d3599c.png")
       div(class='nav_center')
-        if locals.authenticated
-          span(class='nav_center')
-             a(href='/articles/create') Create
+        span(class='nav_center')
+          if locals.authenticated
+            a(href='/articles/create') Create
+          else
+            a(href='/users/demo') Demo
 
       div(class='nav_right')
         if locals.authenticated
