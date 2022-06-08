@@ -164,6 +164,10 @@ router.post('/signup', csrfProtection, userValidators,
       return res.redirect('/');
     });
 
+    router.get('/demo', async(req, res) => {
+      const demoUser = await db.User.findByPk(1);
+      loginUser(req, res, demoUser);
+    })
 
 
 module.exports = router;
