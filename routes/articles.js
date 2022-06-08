@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/models');
-const User = require('../db/models')
-const Comment = require('../db/models')
+const { User, Comment } = require('../db/models')
 const { requireAuth } = require('../auth')
 
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -116,10 +115,13 @@ router.post('/:id(\\d+)/delete', requireAuth, asyncHandler(async (req, res) => {
 // COMMENTS BELOW
 
 router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
-    const { body, article_id, user_id } = req.body;
-    const comment = await db.Comment.create({ body, article_id, user_id });
+    const { body, article_id } = req.body;
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+    const comment = await db.Comment.create({ body, article_id, user_id: userId });
+    const username = user.username;
+    await res.json({ message: 'Success!', comment, username })
 
-    res.json({ message: 'Success!', comment })
 }))
 
 module.exports = router;

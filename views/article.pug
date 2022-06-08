@@ -17,7 +17,8 @@ block content
     div(id='comment_container')
          each comment in comments
             div= comment.body
-                div= User.firstName
+                div= comment.User.username
+                div= comment.updatedAt.toDateString()
     if locals.authenticated
         form(id='comment_form')
             textarea(id="comment_text", name="comment", cols="30", rows="10")
