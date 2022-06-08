@@ -2,15 +2,18 @@ extends layout.pug
 include utils.pug
 
 block content
+  link(rel="stylesheet" href="/stylesheets/signup.css")
   +validationErrorSummary(errors)
-  form(action='/users/signup' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('First Name', 'firstName', user.firstName)
-    +field('Last Name', 'lastName', user.lastName)
-    +field('Username', 'username', user.username)
-    +field('Email', 'email', user.email)
-    +field('Password', 'password', user.password, 'password')
-    +field('Confirm Password', 'confirmPassword', '', 'password')
-    div
-      button(type='submit' id='signup') Sign Up
-      a(href='/' id='cancel') Cancel
+  form(id='sign-up-form' action='/users/signup' method='post')
+    img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
+    h1
+      input(type='hidden' name='_csrf' value=csrfToken)
+      +field("First Name", 'firstName', user.firstName, "text", "signUpClass")
+      +field("Last Name", 'lastName', user.lastName, "text", "signUpClass")
+      +field("Username", 'username', user.username, "text", "signUpClass")
+      +field("E-Mail Address", 'email', user.email, "text", "signUpClass")
+      +field("Enter your password", 'password', user.password, 'password', "signUpClass")
+      +field("Confirm your password", 'confirmPassword', '', 'password', "signUpClass")
+      div
+        button(type='submit' id='signup') Sign Up
+        a(href='/' id='cancel') Cancel
