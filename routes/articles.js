@@ -143,7 +143,7 @@ router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     console.log(req.body)
     const comment = await db.Comment.findByPk(req.body.id);
     await comment.destroy();
-    res.json({message: 'Success!'})
+    res.json({ message: 'Success!' })
 }))
 
 module.exports = router;

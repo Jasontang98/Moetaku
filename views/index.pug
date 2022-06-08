@@ -7,5 +7,11 @@ append head
   script(src="/javascripts/index.js" type="module" defer)
 
 block content
-  h1= title
-  p Welcome to your Project Skeleton
+  h1 Welcome to Moetaku!
+  p A spoof of Medium and Kotaku
+  div(id='main-articles-container')
+    div()
+      each article in articles 
+        div=article.title
+        div= article.User.username
+        div=article.body 
