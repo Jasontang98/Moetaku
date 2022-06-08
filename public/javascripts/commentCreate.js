@@ -18,23 +18,23 @@ createButton.addEventListener("click", async (e) => {
     const data = await res.json()
 
     if (data.message === 'Success!') {
-        const commentContainer = document.getElementById('comment_container');
-        const newComment = document.createElement('div');
-        const newAuthor = document.createElement('div');
-        const updatedAt = document.createElement('div')
-        newComment.innerText = data.comment.body;
-        newAuthor.innerText = data.username;
-        const updatedDate = data.comment.updatedAt;
+        // const commentContainer = document.getElementById('comment_container');
+        // const newComment = document.createElement('div');
+        // const newAuthor = document.createElement('div');
+        // const updatedAt = document.createElement('div')
+        // newComment.innerText = data.comment.body;
+        // newAuthor.innerText = data.username;
+        // const updatedDate = data.comment.updatedAt;
 
-        const newDate = new Date(updatedDate);
+        // const newDate = new Date(updatedDate);
 
-        updatedAt.innerText = newDate.toDateString();
+        // updatedAt.innerText = newDate.toDateString();
 
-        newComment.appendChild(newAuthor);
-        newComment.appendChild(updatedAt);
-        commentContainer.appendChild(newComment);
+        // newComment.appendChild(newAuthor);
+        // newComment.appendChild(updatedAt);
+        // commentContainer.appendChild(newComment);
 
-
+       location.reload();
 
         textBox.value = '';
     }
