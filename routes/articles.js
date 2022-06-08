@@ -130,13 +130,20 @@ router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const comment = await db.Comment.findByPk(id);
     comment.body = body;
     await comment.save();
-    const {user_id} = comment;
+    const { user_id } = comment;
     const user = await db.User.findByPk(user_id);
-const username = user.username;
+    const username = user.username;
 
-    await res.json({ message: 'Success!', comment, username})
+    await res.json({ message: 'Success!', comment, username })
 
 }))
 
+
+router.delete('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+    console.log(req.body)
+    const comment = await db.Comment.findByPk(req.body.id);
+    await comment.destroy();
+    res.json({message: 'Success!'})
+}))
 
 module.exports = router;

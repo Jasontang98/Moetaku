@@ -34,9 +34,9 @@ const button = editButtons[i];
                 const commentDiv = document.getElementById(`${data.comment.id}-comment-div`);
                 const updatedDate = data.comment.updatedAt;
                 const newDate = new Date(updatedDate);
+
+
                 commentDiv.innerHTML = `${data.comment.body} <div>${data.username}</div> <div>${newDate.toDateString()}</div>`;
-                const commentBox = document.getElementById(`${commentId}-comment-edit`)
-                commentBox.value = '';
                 commentForm.classList.add('hidden');
             }
 
