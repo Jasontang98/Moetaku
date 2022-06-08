@@ -4,7 +4,8 @@ const createButton = document.getElementsByClassName('comment_button')[0];
 createButton.addEventListener("click", async (e) => {
     const article_id = e.target.id.split('-')[0];
     e.preventDefault();
-    const comment = document.getElementById('comment_text').value
+    const textBox = document.getElementById('comment_create');
+    const comment = textBox.value;
 
     const res = await fetch(`/articles/${article_id}`, {
         method: 'POST',
@@ -34,7 +35,7 @@ createButton.addEventListener("click", async (e) => {
         commentContainer.appendChild(newComment);
 
 
-        const textBox = document.getElementById('comment_text');
+
         textBox.value = '';
     }
 });
