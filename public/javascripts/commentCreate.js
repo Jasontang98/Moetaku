@@ -3,7 +3,6 @@ const createButton = document.getElementsByClassName('comment_button')[0];
 
 createButton.addEventListener("click", async (e) => {
     const article_id = e.target.id.split('-')[0];
-    const user_id = e.target.id.split('-')[1];
     e.preventDefault();
     const comment = document.getElementById('comment_text').value
 
@@ -29,7 +28,6 @@ createButton.addEventListener("click", async (e) => {
         const newDate = new Date(updatedDate);
 
         updatedAt.innerText = newDate.toDateString();
-
 
         newComment.appendChild(newAuthor);
         newComment.appendChild(updatedAt);

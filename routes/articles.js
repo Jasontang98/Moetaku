@@ -20,7 +20,7 @@ const userValidators = [
 
 
 
-router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const articleId = req.params.id;
     const article = await db.Article.findByPk(articleId);
     const { id, title, body, user_id, updatedAt } = article;
@@ -40,6 +40,7 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     });
 
     res.render('article', { id, title, authorName, date, body, isAuthor, user_id, comments })
+
 }))
 
 router.get('/create', requireAuth, csrfProtection, (req, res) => {
@@ -123,5 +124,19 @@ router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     await res.json({ message: 'Success!', comment, username })
 
 }))
+
+router.put('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
+    const { id, body } = req.body;
+    const comment = await db.Comment.findByPk(id);
+    comment.body = body;
+    await comment.save();
+    const {user_id} = comment;
+    const user = await db.User.findByPk(user_id);
+const username = user.username;
+
+    await res.json({ message: 'Success!', comment, username})
+
+}))
+
 
 module.exports = router;

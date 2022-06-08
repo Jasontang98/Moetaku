@@ -1,6 +1,7 @@
 extends layout.pug
 
 block content
+    link(rel="stylesheet" href="/stylesheets/articles.css")
     script(src='/javascripts/commentCreate.js' type='module')
     script(src='/javascripts/commentEdit.js' type='module')
     script(src='/javascripts/commentDelete.js' type='module')
@@ -16,10 +17,17 @@ block content
     h2 Comments
     div(id='comment_container')
          each comment in comments
-            div= comment.body
+            div(id= `${comment.id}-comment-div`)= comment.body
                 div= comment.User.username
                 div= comment.updatedAt.toDateString()
+            if(locals.user.id === comment.user_id)
+                button(id= `edit-comment-${comment.id}-${id}` class='comment_edit_button') Edit
+                button(id= `delete-comment-${comment.id}`) Delete
+                form(class='hidden' id=`edit-form-${comment.id}`)
+                    textarea(id=`${comment.id}-comment-edit`, cols="30", rows="5")= comment.body
+                    button(id=`${comment.id}-edit` class='comment_edit_submit') Submit
+
     if locals.authenticated
         form(id='comment_form')
-            textarea(id="comment_text", name="comment", cols="30", rows="10")
+            textarea(id="comment_create", cols="30", rows="10" placeholder="Add a comment...")
             button(id=`${id}-${user_id}-comment` class='comment_button') Submit
