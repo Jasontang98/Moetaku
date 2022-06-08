@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/models');
+const User = require('../db/models')
+const Comment = require('../db/models')
 const { requireAuth } = require('../auth')
 
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -22,17 +24,23 @@ const userValidators = [
 router.get('/:id(\\d+)', asyncHandler(async (req, res) => {
     const articleId = req.params.id;
     const article = await db.Article.findByPk(articleId);
-    const { id, title, body, user_id } = article;
+    const { id, title, body, user_id, updatedAt } = article;
+    const author = await db.User.findByPk(user_id);
+    const { firstName, lastName } = author;
+    const authorName = `${firstName} ${lastName}`;
+    const date = updatedAt.toDateString();
     const { userId } = req.session.auth;
     let isAuthor = false;
     if (userId === user_id) isAuthor = true;
 
-    const comments = await db.Comment.findAll({
-        where:{
+    const comments = await Comment.findAll({
+        where: {
             article_id: articleId
-        }
+        },
+        include: User
     });
-    res.render('article', { id, title, body, isAuthor, user_id, comments })
+
+    res.render('article', { id, title, authorName, date, body, isAuthor, user_id, comments })
 }))
 
 router.get('/create', requireAuth, csrfProtection, (req, res) => {
@@ -111,7 +119,7 @@ router.post('/:id(\\d+)', requireAuth, asyncHandler(async (req, res) => {
     const { body, article_id, user_id } = req.body;
     const comment = await db.Comment.create({ body, article_id, user_id });
 
-    res.json({message: 'Success!', comment})
+    res.json({ message: 'Success!', comment })
 }))
 
 module.exports = router;

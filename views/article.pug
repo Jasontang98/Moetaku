@@ -5,6 +5,8 @@ block content
     script(src='/javascripts/commentEdit.js' type='module')
     script(src='/javascripts/commentDelete.js' type='module')
     h1= title
+    h3= authorName
+    h4= date
     p= body
     if(isAuthor)
         a(href=`/articles/${id}/edit` id='article_edit') Edit
@@ -15,6 +17,7 @@ block content
     div(id='comment_container')
          each comment in comments
             div= comment.body
+                div= User.firstName
     if locals.authenticated
         form(id='comment_form')
             textarea(id="comment_text", name="comment", cols="30", rows="10")
