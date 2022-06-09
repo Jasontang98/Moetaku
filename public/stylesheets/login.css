@@ -1,0 +1,42 @@
+form {
+    margin: 0;
+    padding: 0;
+}
+
+#log-in-form {
+    width: 350px;
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
+    background: rgb(0, 128, 160);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 8% auto 0;
+    text-align: center;
+}
+
+h1 {
+    color: #fac017;
+    margin-bottom: 50px;
+}
+
+.logInClass {
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px 0;
+    width: 100%;
+    border: 1px solid #999;
+    outline: none;
+}
+
+#login {
+    color: rgb(0, 128, 160);
+    background-color: #fac017;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
