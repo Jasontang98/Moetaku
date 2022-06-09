@@ -52,17 +52,17 @@ module.exports = {
         updatedAt: new Date()
       },
       {
-        title: 'The Best Sex Games On Steam, According To OnlyFans Creators',
-        body: 'If Steam’s huge list of sex games is a gated, glistening community pool, I am the discarded, embarrassing flamingo float, doomed to skim the surface for all eternity. I make attempts to dive in—I look at each 2D succubus thumbnail carefully and determine whether or not demon porn is against my core values. I carefully consider “about” sections, which explain in didactic detail why this game’s anime girlfriend with big tits is better than that game’s anime girlfriend with big tits. I nod my head and pretend to understand where to start with all this, how to evade everything titled some variation of “Yummy Mommy Butt” and find the good stuff. But I don’t understand—I am a metaphorical pink flamingo pool floatie. \n You’re metaphorically one of those foam pool noodles that dogs and babies chew on. You might be unsure of where to start with Steam’s NSFW games like me, or perhaps you’re searching for a new favorite. Maybe you’re just curious about what horny games OnlyFans’ enterprising lewd creators like to play. Well, pool noodle, you’re in luck. To get to the bottom of Steam’s infinite slutty options, I asked a few NSFW OnlyFans gamers for their NSFW recommendations and got a range of funny, pretty, X-rated titles back. We will no longer have to swim through Steam aimlessly; we now have a plan. Read on to discover it.',
-        imageURL: 'https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/87d8588da1ca8b46f059b07bfe66dc9c.jpg',
+        title: 'A Promising Weekend With Halo Infinite\'s Beta',
+        body: 'Over the weekend, 343 Industries let a bunch of eager players check out Halo Infinite’s first public “flight.” On paper, the flight was a technical test, meant to see how the servers perform under pressure and how bots, a series first, would stack up against real-life human players. But, really, it meant one very simple thing: We got to play freakin’ Halo Infinite! The flight formally wrapped up just a few hours ago. Obviously Kotaku’s biggest Halo fans—staff writer Ari Notis and weekend editor Zack Zweizen—had to geek out a bit about what we played.',
+        imageURL: 'https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/8952811f46d072f442bd5113b5ed1a33.jpg',
         user_id: 5,
         createdAt: new Date(),
         updatedAt: new Date()
       },
       {
-        title: 'Report: Microsoft Kinect Creator Resigns After Being Accused Of Watching ‘VR Porn’ At Work',
-        body: 'Alex Kipman, a longtime Microsoft executive, is leaving the company after 21 years due to numerous misconduct allegations, Insider reports. The accusations include inappropriately touching female employees and watching what one witness described as “VR porn” at work. \n Many in the gaming world may recognize Kipman from Xbox motion-sensing accessory Kinect, on which he guided development leading up to its 2009 debut. Microsoft touted the Xbox 360 (and eventually Xbox One) peripheral as the next big thing in gaming at launch, but Kinect was officially put out to pasture in 2017 after not achieving the critical and commercial success Microsoft no doubt envisioned for it.',
-        imageURL: 'https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/4b7c09a46141a91ad999ec7d507aa50b.jpg',
+        title: 'For The Streamer From The Last Of Us Bunny Meme, Virality Led To Death Threats Over Things She Never Did',
+        body: 'If Emme “Negaoryx” Montgomery’s chat moderator hadn’t gotten up to use the bathroom, six million people would not have seen what happened next. During a stream last week, a viewer asked Montgomery, “What color is your thong today?” Usually, Montgomery doesn’t acknowledge those sorts of messages. But with her mod gone, the message did not get zapped into oblivion. Instead, it just sat there and festered. So Montgomery engaged: “You absolute infant of a human,” she began. “What did you expect?” Her ensuing systematic takedown of a sexist non-joke caught fire on Twitter, doubling the size of Montgomery’s audience overnight. She was surprised, but not that surprised. She’d been there before, under very different circumstances. She is, after all, the Last Of Us dying rabbit meme girl.',
+        imageURL: 'https://i.kinja-img.com/gawker-media/image/upload/c_fit,f_auto,g_center,pg_1,q_60,w_965/y4th2weowoxydm1dzsap.jpg',
         user_id: 5,
         createdAt: new Date(),
         updatedAt: new Date()
