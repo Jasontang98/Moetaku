@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.TEXT
     },
     imageURL: {
-      type: DataTypes.STRING(100)
+      type: DataTypes.STRING(250)
     },
     user_id: {
       type: DataTypes.INTEGER,
