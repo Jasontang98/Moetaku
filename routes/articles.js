@@ -7,7 +7,6 @@ const { requireAuth } = require('../auth')
 const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
 
-
 const userValidators = [
     check('title')
         .exists({ checkFalsy: true })

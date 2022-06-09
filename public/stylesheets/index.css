@@ -29,14 +29,14 @@ h1 {
 }
 
 #main-articles-container>span {
-    /* background-color: whitesmoke;*/
-    /* border-radius: 4px; */
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     border-bottom: 1px solid grey;
     margin-top: 5px;
     padding-bottom: 5px;
+
 }
 
 
