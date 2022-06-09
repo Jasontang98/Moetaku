@@ -60,8 +60,8 @@ router.get('/create', requireAuth, csrfProtection, (req, res) => {
 router.post('/create', requireAuth, csrfProtection, userValidators, asyncHandler(async (req, res) => {
     const { title, body, imageURL } = req.body;
     const { userId } = req.session.auth;
-    if (!imageURL.includes('.jpg' ||
-        '.png')) {
+    if (!imageURL.includes(('jpg' ||
+        'png') || 'jpeg')) {
         imageURL = null;
     }
     const article = await db.Article.build({ title, body, imageURL, user_id: userId });
@@ -97,8 +97,8 @@ router.post('/:id(\\d+)/edit', requireAuth, csrfProtection, userValidators, asyn
     const article = await db.Article.findByPk(articleId);
 
     const validatorErrors = validationResult(req);
-    if (!req.body.imageURL.includes('.jpg' ||
-        '.png')) {
+    if (!req.body.imageURL.includes(('jpg' ||
+        'png') || 'jpeg')) {
         req.body.imageURL = null;
     }
     if (validatorErrors.isEmpty()) {
