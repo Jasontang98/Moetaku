@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Article = sequelize.define('Article', {
     title: {
       allowNull: false,
-      type: DataTypes.STRING(100)
+      type: DataTypes.STRING(250)
     },
     body: {
       allowNull: false,
