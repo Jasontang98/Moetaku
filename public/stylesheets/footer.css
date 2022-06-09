@@ -1,0 +1,24 @@
+#footer {
+    width: 100%;
+    background-color: #fcfcfc;
+    color: black;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.footer-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+#about:hover {
+    color: #1c3bed;
+}
