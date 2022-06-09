@@ -11,9 +11,9 @@ router.get('/', async (req, res, next) => {
 
   const articles = await Article.findAll({
     include: [User],
-    // order: [
-    //   ['updatedAt', 'desc']
-    // ]
+    order: [
+      ['updatedAt', 'desc']
+    ]
   });
 
   res.render('index', { articles });
