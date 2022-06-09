@@ -7,6 +7,7 @@ const { requireAuth } = require('../auth')
 const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
 
+
 const userValidators = [
     check('title')
         .exists({ checkFalsy: true })
@@ -43,6 +44,7 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
 
 }))
 
+
 router.get('/create', requireAuth, csrfProtection, (req, res) => {
     const article = db.Article.build();
 
@@ -54,11 +56,15 @@ router.get('/create', requireAuth, csrfProtection, (req, res) => {
 
 })
 
+
 router.post('/create', requireAuth, csrfProtection, userValidators, asyncHandler(async (req, res) => {
     const { title, body, imageURL } = req.body;
     const { userId } = req.session.auth;
-
-    const article = db.Article.build({ title, body, imageURL, user_id: userId });
+    if (!imageURL.includes('.jpg' ||
+        '.png')) {
+        imageURL = null;
+    }
+    const article = await db.Article.build({ title, body, imageURL, user_id: userId });
 
     const validatorErrors = validationResult(req);
 
@@ -91,9 +97,12 @@ router.post('/:id(\\d+)/edit', requireAuth, csrfProtection, userValidators, asyn
     const article = await db.Article.findByPk(articleId);
 
     const validatorErrors = validationResult(req);
-
+    if (!req.body.imageURL.includes('.jpg' ||
+        '.png')) {
+        req.body.imageURL = null;
+    }
     if (validatorErrors.isEmpty()) {
-        await article.update({ title: req.body.title, body: req.body.body })
+        await article.update({ title: req.body.title, body: req.body.body, imageURL: req.body.imageURL })
         res.redirect(`/articles/${article.id}`);
     } else {
         const errors = validatorErrors.array().map((error) => error.msg);
