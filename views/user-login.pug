@@ -5,12 +5,14 @@ block content
   link(rel="stylesheet" href="/stylesheets/login.css")
   +validationErrorSummary(errors)
   form(id='log-in-form' action='/users/login' method='post')
-    img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
-    h1
+      img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
       input(type='hidden' name='_csrf' value=csrfToken)
       +field('Username', 'username', username, "text", "logInClass")
       +field('Password', 'password', null, 'password', "logInClass")
       div
         button(type='submit' id='login') Login
         a(href='/' id='cancellink') Cancel
+      div(class='div3')
         a(href='/users/signup' id='signuplink') Don't have an account?
+        p(id="ordemo") or
+        a(href='/users/demo' id='demoaccount') Try using our demo user!
