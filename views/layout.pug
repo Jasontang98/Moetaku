@@ -13,18 +13,28 @@ html
       div(class='nav_center')
         span(class='nav_center')
           if locals.authenticated
-            a(href='/articles/create') Create
+            a(href='/' class="center_link") Home
+            div |
+            a(href='/' class="center_link") Feed
+            div |
+            a(href='/' class="center_link") Bookmarks
+            div |
+            a(href='/articles/create' class="center_link") Create
+
+
+
           else
-            a(href='/users/demo') Demo
+            a(href='/users/demo' class="center_link") Login with Demo User
 
       div(class='nav_right')
         if locals.authenticated
-          span(class='nav_button') Welcome #{user.firstName}!
+          span(class='nav_button')
+            div(id= 'welcome_message')= `Welcome ${user.firstName}!`
             form(action='/users/logout' method='post')
-              button(type='submit') Logout
+                button(type='submit' id='logout_button') Logout
         else
           span(class='nav_button')
-            a(id="nav_login" href='/users/login') Login
             a(id="nav_signup" href='/users/signup') Sign Up
+            a(id="nav_login" href='/users/login') Login
 
     block content
