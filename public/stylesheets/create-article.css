@@ -1,0 +1,79 @@
+#createArticle {
+    width: 800px;
+    height: 500px;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 8% auto 0;
+    text-align: center;
+    background: rgb(0, 128, 160);
+    box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
+    border: solid 2px black
+}
+
+#titleLabel {
+    display: flex;
+    align-content: flex-start;
+}
+
+.titleClass {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-content: flex-start;
+
+}
+
+#urlLabel {
+    display: flex;
+    align-content: flex-start;
+}
+
+.urlClass {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    align-content: flex-start;
+}
+
+#typeArticle {
+    display: flex;
+    align-content: flex-start;
+    resize: none;
+    width: 100%;
+    height: 70%;
+}
+
+#create {
+    color: rgb(0, 128, 160);
+    background-color: #fac017;
+    font-weight: bold;
+    width: 10%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+#cancel {
+    color: rgb(255, 255, 255);
+    background-color: #dd3838;
+    font-weight: bold;
+    width: 10%;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+.cancelcreate {
+    display: flex;
+    justify-content: space-evenly;
+}
