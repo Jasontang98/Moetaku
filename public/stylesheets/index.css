@@ -23,9 +23,9 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 75%;
+    min-width: 900px;
     /* border-left: 1px solid grey;
     border-right: 1px solid grey; */
-
 }
 
 #main-articles-container>span {
@@ -33,7 +33,7 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid lightgrey;
     margin-top: 5px;
     padding-bottom: 5px;
 
