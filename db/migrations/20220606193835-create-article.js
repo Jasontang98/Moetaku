@@ -16,6 +16,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
+      imageURL: {
+        type: Sequelize.STRING(100)
+      },
       user_id: {
         type: Sequelize.INTEGER,
         references: {model: 'Users'}
