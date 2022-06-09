@@ -5,29 +5,33 @@ block content
     script(src='/javascripts/commentCreate.js' type='module')
     script(src='/javascripts/commentEdit.js' type='module')
     script(src='/javascripts/commentDelete.js' type='module')
-    h1= title
-    h3= authorName
-    h4= date
-    p= body
-    img(src=imageURL)
-    if(isAuthor)
-        a(href=`/articles/${id}/edit` id='article_edit') Edit
-        form(action=`/articles/${id}/delete` method='post')
-            button(type='submit' id='article_delete') Delete
+    div(id='article-container')
+        h1(id='article_title')= title
+        div(id= 'author_date')
+            h3= authorName
+            h4= date
+        if(imageURL)
+            img(id='article_img' src=imageURL)
+        p= body
+        if(isAuthor)
+            div(id='article-edit-buttons')
+                a(href=`/articles/${id}/edit` id='article_edit') Edit
+                form(action=`/articles/${id}/delete` method='post')
+                    button(type='submit' id='article_delete' class='edit_delete_button') Delete
 
-    h2 Comments
     div(id='comment_container')
-         each comment in comments
+        h2(id='comment_header') Comments
+        each comment in comments
             div(id= `${comment.id}-comment-div`)= comment.body
-                div= comment.User.username
-                div= comment.updatedAt.toDateString()
+            div= comment.User.username
+            div= comment.updatedAt.toDateString()
             if(locals.user && locals.user.id === comment.user_id)
-                button(id= `edit-comment-${comment.id}-${id}` class='comment_edit_button') Edit
-                button(id= `delete-comment-${comment.id}-${id}` class='comment_delete_button') Delete
+                button(id= `edit-comment-${comment.id}-${id}` class='comment_edit_button edit_delete_button') Edit
+                button(id= `delete-comment-${comment.id}-${id}` class='comment_delete_button edit_delete_button') Delete
                 form(class='hidden' id=`edit-form-${comment.id}`)
                     textarea(id=`${comment.id}-comment-edit`, cols="30", rows="5")= comment.body
                     button(id=`${comment.id}-edit` class='comment_edit_submit') Submit
-    if locals.authenticated
-        form(id='comment_form')
-            textarea(id="comment_create", cols="30", rows="10" placeholder="Add a comment...")
-            button(id=`${id}-${user_id}-comment` class='comment_button') Submit
+        if locals.authenticated
+            form(id='comment_form')
+                textarea(id="comment_create", placeholder="Add a comment...")
+                button(id=`${id}-${user_id}-comment` class='comment_button edit_delete_button') Submit
