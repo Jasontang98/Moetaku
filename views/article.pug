@@ -9,7 +9,7 @@ block content
     h3= authorName
     h4= date
     p= body
-    img(src=imageURL, alt="appropriate picture")
+    img(src=imageURL)
     if(isAuthor)
         a(href=`/articles/${id}/edit` id='article_edit') Edit
         form(action=`/articles/${id}/delete` method='post')
