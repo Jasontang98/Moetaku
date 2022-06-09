@@ -8,7 +8,7 @@ append head
 
 block content
   div(id=`index-container`)
-    h1 Welcome to Moetaku!
+    h1 "No porn articles"-Moe Hussein
     if !locals.authenticated
       p Create an account or sign in to create and comment on articles
     div(id='main-articles-container')
@@ -18,6 +18,11 @@ block content
                 div(id='article-author-body')
                   div(class='article-title')=article.title
                   div(id=`author-name`)= `${article.User.firstName} ${article.User.lastName}`
+                    div(id='update-time')= `${article.updatedAt.toDateString()}`
               a(href=`./articles/${article.id}`)
                 div(id='article-image')
-                  img(src=article.imageURL, alt=`appropriate image for "${article.title}"`)
+                  if article.imageURL
+                    img(src=article.imageURL, alt=`appropriate image for "${article.title}"`)
+                  if !article.imageURL
+                    div(id='no-image-box')
+                      img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png" id='no-image' alt=`appropriate image for "${article.title}"`)

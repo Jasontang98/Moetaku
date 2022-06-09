@@ -11,13 +11,12 @@ const userValidators = [
     check('title')
         .exists({ checkFalsy: true })
         .withMessage('Please enter a title.')
-        .isLength({ max: 30 })
-        .withMessage('Maximum title length is 100 characters.'),
+        .isLength({ max: 1000 })
+        .withMessage('Maximum title length is 1000 characters.'),
     check('body')
         .exists({ checkFalsy: true })
         .withMessage('Please enter something.')
 ]
-
 
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
