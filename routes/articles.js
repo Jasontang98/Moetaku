@@ -22,7 +22,7 @@ const userValidators = [
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const articleId = req.params.id;
     const article = await db.Article.findByPk(articleId);
-    const { id, title, body, user_id, updatedAt } = article;
+    const { id, title, body, user_id, updatedAt, imageURL } = article;
     const author = await db.User.findByPk(user_id);
     const { firstName, lastName } = author;
     const authorName = `${firstName} ${lastName}`;
@@ -39,7 +39,7 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         include: User
     });
 
-    res.render('article', { id, title, authorName, date, body, isAuthor, user_id, comments })
+    res.render('article', { id, title, authorName, date, body, isAuthor, user_id, comments, imageURL })
 
 }))
 
@@ -55,10 +55,10 @@ router.get('/create', requireAuth, csrfProtection, (req, res) => {
 })
 
 router.post('/create', requireAuth, csrfProtection, userValidators, asyncHandler(async (req, res) => {
-    const { title, body } = req.body;
+    const { title, body, imageURL } = req.body;
     const { userId } = req.session.auth;
 
-    const article = db.Article.build({ title, body, user_id: userId });
+    const article = db.Article.build({ title, body, imageURL, user_id: userId });
 
     const validatorErrors = validationResult(req);
 
