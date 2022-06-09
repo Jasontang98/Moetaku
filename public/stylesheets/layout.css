@@ -66,6 +66,7 @@ grid-template-areas:
   display:flex;
   justify-content: space-evenly;
 }
+//hellohello
 
 #nav_login, #nav_signup {
   font-family:Copperplate;
@@ -82,4 +83,3 @@ grid-template-areas:
   width: 85px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 }
-
