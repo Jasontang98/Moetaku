@@ -36,6 +36,10 @@ app.use(
   })
 );
 
+app.get('/about', async(req, res) => {
+  res.render('about')
+})
+
 // create Session table if it doesn't already exist
 store.sync();
 

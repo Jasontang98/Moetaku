@@ -1,0 +1,17 @@
+extends layout.pug
+
+block content
+    link(rel="stylesheet" href="/stylesheets/about.css")
+    head
+        div
+            h1(id= "title") Moetaku about
+            p This is Moetaku we are a news and opinion site about games and game related topics. We provide articles about pop culture topics like anime, TV, and movies. We at Moetaku thrive to be the number one gaming informative website in the world.
+    body
+        div(class= "about-container")
+            div(class= "body-container")
+                article(class= "card")
+                    figure(class= "display-img")
+                        img(src= "https://images.unsplash.com/photo-1472791108553-c9405341e398?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=937&q=80")
+                    div(class= "body-content")
+                       h3(class= "body-title") title
+                       p(class= "body") body
