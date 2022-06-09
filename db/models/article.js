@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT
     },
+    imageURL: {
+      type: DataTypes.STRING(100)
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {model: 'Users'}
