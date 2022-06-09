@@ -12,7 +12,7 @@ block content
     if !locals.authenticated
       p Create an account or sign in to create and comment on articles
     div(id='main-articles-container')
-        each article in articles 
+        each article in articles
           span(class=`article-box`)
               a(href=`./articles/${article.id}`)
                 div(id='article-author-body')
@@ -26,3 +26,16 @@ block content
                   if !article.imageURL
                     div(id='no-image-box')
                       img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png" id='no-image' alt=`appropriate image for "${article.title}"`)
+        footer
+          div(class= "footer")
+            a(id= "about" href="/about") About
+            div |
+            p(class= "us") Moe Hussein
+            div |
+            p(class= "us") Jason Tang
+            div |
+            p(class= "us") Eddie Lau
+            div |
+            p(class= "us") Ethan Browning
+            div |
+            p(class= "us") 2022
