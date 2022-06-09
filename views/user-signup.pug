@@ -14,6 +14,8 @@ block content
       +field("E-Mail Address", 'email', user.email, "text", "signUpClass")
       +field("Enter your password", 'password', user.password, 'password', "signUpClass")
       +field("Confirm your password", 'confirmPassword', '', 'password', "signUpClass")
-      div
+      div(class='div1')
         button(type='submit' id='signup') Sign Up
+      div(class='div2')
         a(href='/' id='cancel') Cancel
+        a(href='/users/login' id='gotaccount') Already have an account?
