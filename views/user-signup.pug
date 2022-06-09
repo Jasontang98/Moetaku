@@ -5,8 +5,7 @@ block content
   link(rel="stylesheet" href="/stylesheets/signup.css")
   +validationErrorSummary(errors)
   form(id='sign-up-form' action='/users/signup' method='post')
-    img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
-    h1
+      img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
       input(type='hidden' name='_csrf' value=csrfToken)
       +field("First Name", 'firstName', user.firstName, "text", "signUpClass")
       +field("Last Name", 'lastName', user.lastName, "text", "signUpClass")
@@ -14,8 +13,11 @@ block content
       +field("E-Mail Address", 'email', user.email, "text", "signUpClass")
       +field("Enter your password", 'password', user.password, 'password', "signUpClass")
       +field("Confirm your password", 'confirmPassword', '', 'password', "signUpClass")
-      div(class='div1')
+      div
         button(type='submit' id='signup') Sign Up
-      div(class='div2')
+      div
         a(href='/' id='cancel') Cancel
+      div(class='div3')
         a(href='/users/login' id='gotaccount') Already have an account?
+        p(id="ordemo") or
+        a(href='/users/demo' id='demoaccount') Try using our demo user!
