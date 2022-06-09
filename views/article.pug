@@ -20,7 +20,7 @@ block content
             div(id= `${comment.id}-comment-div`)= comment.body
                 div= comment.User.username
                 div= comment.updatedAt.toDateString()
-            if(locals.user.id === comment.user_id)
+            if(locals.user && locals.user.id === comment.user_id)
                 button(id= `edit-comment-${comment.id}-${id}` class='comment_edit_button') Edit
                 button(id= `delete-comment-${comment.id}-${id}` class='comment_delete_button') Delete
                 form(class='hidden' id=`edit-form-${comment.id}`)
