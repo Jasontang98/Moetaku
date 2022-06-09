@@ -10,7 +10,10 @@ const { User, Article } = require('../db/models')
 router.get('/', async (req, res, next) => {
 
   const articles = await Article.findAll({
-    include: User
+    include: [User],
+    order: [
+      ['updatedAt', 'desc']
+    ]
   });
 
   res.render('index', { articles });
