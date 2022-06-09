@@ -1,13 +1,15 @@
 extends layout.pug
-
 include utils.pug
 
 block content
+  link(rel="stylesheet" href="/stylesheets/login.css")
   +validationErrorSummary(errors)
-  form(action='/users/login' method='post')
-    input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Username', 'username', username)
-    +field('Password', 'password', null, 'password')
-    div
-      button(type='submit' id='login') Login
-      a(href='/') Cancel
+  form(id='log-in-form' action='/users/login' method='post')
+    img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
+    h1
+      input(type='hidden' name='_csrf' value=csrfToken)
+      +field('Username', 'username', username, "text", "logInClass")
+      +field('Password', 'password', null, 'password', "logInClass")
+      div
+        button(type='submit' id='login') Login
+        a(href='/') Cancel
