@@ -28,10 +28,11 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const { firstName, lastName } = author;
     const authorName = `${firstName} ${lastName}`;
     const date = updatedAt.toDateString();
-    const { userId } = req.session.auth;
     let isAuthor = false;
-    if (userId === user_id) isAuthor = true;
-
+    if (req.session.auth) {
+        const { userId } = req.session.auth;
+        if (userId === user_id) isAuthor = true;
+    }
     const comments = await Comment.findAll({
         where: {
             article_id: articleId
