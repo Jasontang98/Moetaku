@@ -173,4 +173,37 @@ h1 {
 
   color: #fac017;
   font-style: italic;
-};
+}
+#footer_seperater{
+  height:50px;
+  width:100%;
+}
+
+#footer_container {
+  display: flex;
+  justify-content: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(0, 128, 160);
+  color: #fac017;
+  width: 100%;
+  position:absolute;
+  bottom: 0;
+  height:50px;
+}
+
+#about{
+  font-weight:bolder;
+}
+
+#about,
+.us {
+  font-size:10pt;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding: auto;
+}
+
+/* #footer_box{
+  height:100px;
+} */
