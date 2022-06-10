@@ -13,6 +13,7 @@ h1 {
     padding-bottom: 20px;
 }
 
+
 #index-container {
     display: flex;
     flex-direction: column;
@@ -23,6 +24,7 @@ h1 {
     display: flex;
     flex-direction: column;
     width: 75%;
+    margin-bottom: 80px;
     min-width: 900px;
     /* border-left: 1px solid grey;
     border-right: 1px solid grey; */
@@ -72,7 +74,6 @@ h1 {
 }
 
 #no-image {
-
     width: 70px;
     height: 55px;
 }
@@ -80,20 +81,3 @@ h1 {
 img {
     border-radius: 4px;
 }
-
-.footer {
-    display: flex;
-    justify-content: row;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-    background-color: rgb(0, 128, 160);
-    color: #fac017;
-    width: 100%;
- }
-
-#about,
-.us {
-     padding-left: 10px;
-     padding-right: 10px;
- }
