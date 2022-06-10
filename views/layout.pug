@@ -10,8 +10,8 @@ html
       div(class='nav_left')
         a(class='navbar_icon' href='/')
           img(id='logo' src="https://fontmeme.com/permalink/220607/a819adcc4be5013f07daf0bf37d3599c.png")
+          div(class='slogan') Mo games, mo problems.
       div(class='nav_center')
-        span(class='nav_center')
           if locals.authenticated
             a(href='/' class="center_link") Home
             div |
@@ -22,7 +22,6 @@ html
             a(href='/articles/create' class="center_link") Create
           else
             a(href='/users/demo' class="center_link") Login with Demo User
-
       div(class='nav_right')
         if locals.authenticated
           span(class='nav_button')
@@ -33,6 +32,8 @@ html
           span(class='nav_button')
             a(id="nav_signup" href='/users/signup') Sign Up
             a(id="nav_login" href='/users/login') Login
+          div
+            a(href='/users/demo' id='demo_link') Try using our demo user!
 
     block content
 include footer.pug

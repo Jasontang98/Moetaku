@@ -10,6 +10,7 @@ h1 {
 
 .article-title {
     font-weight: bold;
+    padding-bottom: 20px;
 }
 
 
@@ -24,20 +25,20 @@ h1 {
     flex-direction: column;
     width: 75%;
     margin-bottom: 80px;
+    min-width: 900px;
     /* border-left: 1px solid grey;
     border-right: 1px solid grey; */
-
 }
 
 #main-articles-container>span {
-    /* background-color: whitesmoke;*/
-    /* border-radius: 4px; */
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border-bottom: 1px solid grey;
-    margin-top: 10px;
+    border-bottom: 1px solid lightgrey;
+    margin-top: 5px;
     padding-bottom: 5px;
+
 }
 
 
@@ -46,10 +47,9 @@ h1 {
     width: 500px
 }
 
-#article-author-body div {
+/* #article-author-body div {
 
-    padding-bottom: 20px
-}
+} */
 
 #author-name {
     text-decoration: none;
@@ -61,12 +61,6 @@ h1 {
     height: 100px;
     width: 175px;
 }
-
-/* #article-image img#no-image {
-    height: 100px;
-    width: 175px;
-
-} */
 
 #no-image-box {
     border-radius: 4px;
