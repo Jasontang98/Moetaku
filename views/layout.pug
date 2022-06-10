@@ -15,11 +15,13 @@ html
           if locals.authenticated
             a(href='/' class="center_link") Home
             div |
-            a(href='/' class="center_link") Feed
+            a(href='/articles' class="center_link") Articles
             div |
-            a(href='/' class="center_link") Bookmarks
+            a(href='/Users' class="center_link") Users
             div |
             a(href='/articles/create' class="center_link") Create
+            div |
+            a(href=`/Users/${user.iD}` class="center_link") Profile
       div(class='nav_right')
         if locals.authenticated
           span(class='nav_button')

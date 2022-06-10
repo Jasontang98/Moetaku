@@ -72,11 +72,12 @@ router.get('/create', requireAuth, csrfProtection, (req, res) => {
 router.post('/create', requireAuth, csrfProtection, userValidators, asyncHandler(async (req, res) => {
     const { title, body, imageURL } = req.body;
     const { userId } = req.session.auth;
-    if (!imageURL.includes(('jpg' ||
-        'png') || 'jpeg')) {
-        imageURL = null;
+    let imgVar;
+    if (!imageURL.includes(('jpg' || 'png') || 'jpeg')) {
+        imgVar = null;
     }
-    const article = await db.Article.build({ title, body, imageURL, user_id: userId });
+
+    const article = await db.Article.build({ title, body, imageURL:imgVar, user_id: userId });
 
     const validatorErrors = validationResult(req);
 
