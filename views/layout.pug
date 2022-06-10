@@ -25,11 +25,11 @@ html
           span(class='nav_button')
             div(id= 'welcome_message')= `Welcome ${user.firstName}!`
             form(action='/users/logout' method='post')
-                button(type='submit' id='logout_button') Logout
+                button(type='submit' id='logout_button') Log Out
         else
           span(class='nav_button')
             a(id="nav_signup" href='/users/signup') Sign Up
-            a(id="nav_login" href='/users/login') Login
+            a(id="nav_login" href='/users/login') Log In
           div
             a(href='/users/demo' id='demo_link') Try using our demo user!
 

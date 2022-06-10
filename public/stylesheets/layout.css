@@ -32,6 +32,14 @@ nav {
   font-weight: normal;
 }
 
+a{
+  text-decoration: none;;
+}
+
+a:hover{
+  text-decoration:underline;
+}
+
 h1 {
   font-size: 2rem;
 }
@@ -62,6 +70,9 @@ h1 {
   text-decoration: none;
   color:#fac017;
   font-style:italic;
+}
+.navbar_icon:hover{
+  text-decoration: none;
 }
 
 .nav_center {
@@ -113,18 +124,18 @@ h1 {
 }
 
 #nav_login:hover,
-#nav_signup:hover {
+#nav_signup:hover,
+#logout_button:hover {
   color:#fac017;
-  background-color:rgb(0, 128, 160);
+  background-color:rgba(0, 128, 160, .1);
   border: solid 2px #fac017;
 }
 
 #nav_login:active,
-#nav_signup:active {
+#nav_signup:active,
+#logout_button:active {
   transform: translate(3px, 3px);
   box-shadow:none;
-
-
 }
 
 

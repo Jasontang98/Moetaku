@@ -30,17 +30,27 @@ h1 {
 #signup {
     color: rgb(0, 128, 160);
     background-color: #fac017;
-    font-weight: bold;
+    font-weight: bolder;
     width: 100%;
-    padding: 10px;
+    height: 34px;
     border-radius: 8px;
     font-size: 15px;
     margin: 10px 0;
-    border: none;
-    outline: none;
+    border:transparent 2px;
     cursor: pointer;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+#signup:hover {
+  color:#fac017;
+  box-sizing:border-box;
+  background-color:rgba(0, 128, 160);
+  border: solid 2px #fac017;
 }
 
+#signup:active {
+  transform: translate(3px, 3px);
+  box-shadow:none;
+}
 /* .div1 {
     display: flex;
     flex-direction: column;
@@ -54,6 +64,9 @@ h1 {
 
 .div3 {
     margin-top: 20px;
+    border: solid 1px #fac017;
+    padding:10px;
+    border-radius: 8px;
 }
 
 
