@@ -8,9 +8,14 @@ append head
 
 block content
   div(id=`index-container`)
-    h1 "No porn articles"-Eddie
     if !locals.authenticated
-      p Create an account or sign in to create and comment on articles
+      div(id='splash-div')
+        div(id='splash-logo-subheading')
+          div(id='git-gud') Git gud.
+          //- img(src="https://fontmeme.com/permalink/220610/105acbb226a751c85ec769bf6ed27c76.png")
+          div Pwn your n00b friends by keeping up with recent gaming news.
+          div(id='click-to-start-div')
+            a(id="click-to-start" href='/users/signup') Click to start
     div(id='main-articles-container')
         each article in articles
           span(class=`article-box`)
