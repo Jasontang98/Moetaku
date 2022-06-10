@@ -9,7 +9,9 @@ form {
     background: rgb(0, 128, 160);
     border-radius: 8px;
     padding: 20px;
-    margin: 8% auto 0;
+    margin: auto;
+    margin-top:5%;
+    margin-bottom:5%;
     text-align: center;
 }
 

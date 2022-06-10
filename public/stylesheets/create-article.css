@@ -1,59 +1,68 @@
 #createArticle {
-    width: 800px;
-    height: 500px;
+    width: 710px;
+    height: 640px;
     border-radius: 8px;
-    padding: 20px;
-    margin: 8% auto 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: auto;
     text-align: center;
-    background: rgb(255, 255, 255);
+    background-color: rgb(0, 128, 160);
     box-shadow: 8px 8px 5px rgba(0, 0, 0, 0.5);
-    border: solid 2px black
+    box-sizing: content-box;
+    margin-bottom:50px;
+    margin-top:50px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;;
+
 }
 
-#titleLabel {
-    display: flex;
-    align-content: flex-start;
+
+#titlelabel, #imglabel, #contentlabel {
+margin-top:15px;
+margin-bottom:10px;
+display: flex;
+justify-content: left;
+font-size: 12pt;
+color: #fac017;
+font-weight: bold;
 }
 
-.titleClass {
+
+
+
+.urlClass, .titleClass {
+    padding:10px;
     width: 100%;
     height: 30px;
-    display: flex;
-    align-content: flex-start;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    border: solid black 1px;
-    background-color: #FAC01766;
+    border-radius: 5px;
+    border:transparent;
 }
 
-#urlLabel {
-    display: flex;
-    align-content: flex-start;
+.urlClass:focus, .titleClass:focus {
+    outline: none;
+    border: solid 2px rgb(0, 128, 160);
 }
 
-.urlClass {
-    width: 100%;
-    height: 30px;
-    display: flex;
-    align-content: flex-start;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    background-color: #FAC01766;
-    border: solid black 1px;
-}
 
 #typeArticle {
-    display: flex;
-    align-content: flex-start;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
     resize: none;
-    width: 100%;
-    height: 70%;
-    border-radius: 10px;
-    background-color: #FAC01766;
-    border: solid black 1px;
+    border: none;
+    border-radius: 5px;
+    height:100%;
+    width:100%;
+    background-color: white;
+}
+
+#typeArticle:focus {
+    outline: none;
+    border: solid 2px rgb(0, 128, 160);
 }
 
 #create {
+    font-size: 15px;
     font-weight: bolder;
     display: flex;
     justify-content: center;
@@ -65,9 +74,11 @@
     height: 28px;
     width: 85px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+    border:transparent;
 }
 
 #cancel {
+    font-size: 15px;
     font-weight: bolder;
     display: flex;
     justify-content: center;
@@ -107,7 +118,7 @@
     margin: auto;
     display: flex;
     justify-content: space-evenly;
-    border: solid 2px rgb(0, 128, 160);
+    /* border: solid 2px rgb(0, 128, 160); */
     border-radius: 8px;
     width: 325px;
     align-items: center;
