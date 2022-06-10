@@ -3,16 +3,39 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../db/models');
 const { Op } = require('sequelize');
+const { User, Article } = require('../db/models')
 
 const { loginUser, logoutUser } = require('../auth');
 const { csrfProtection, asyncHandler } = require('./utils');
 const { check, validationResult } = require('express-validator');
 
 /* GET users listing. */
-router.get('/', async (req, res, next) => {
+// router.get('/', async (req, res, next) => {
+//   const users = await User.findAll();
+//   res.send(users);
+// });
+//^was here, pre-changes
+
+router.get('/', csrfProtection, async (req, res, next) => {
   const users = await User.findAll();
-  res.send(users);
+  res.render('users-view', {
+    title: 'Users',
+    users,
+    csrfToken: req.csrfToken()
+  });
 });
+
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => {
+  const user = await User.findByPk(req.params.id)
+
+  res.render('user-profile', {
+    title: `${user.firstName} ${user.lastName}'s profile`,
+    user,
+    csrfToken: req.csrfToken()
+  });
+}));
+
+
 
 //USER SIGN UP
 router.get('/signup', csrfProtection, (req, res, next) => {
@@ -109,66 +132,67 @@ router.post('/signup', csrfProtection, userValidators,
     }
   }));
 
-  //USER LOG IN
-  router.get('/login', csrfProtection, (req, res) => {
+//USER LOG IN
+router.get('/login', csrfProtection, (req, res) => {
+  res.render('user-login', {
+    title: 'Login',
+    csrfToken: req.csrfToken(),
+  });
+});
+
+
+const loginValidators = [
+  check('username')
+    .exists({ checkFalsy: true })
+    .withMessage('Please enter your username.'),
+  check('password')
+    .exists({ checkFalsy: true })
+    .withMessage('Please enter your password.'),
+];
+
+router.post('/login', csrfProtection, loginValidators,
+  asyncHandler(async (req, res) => {
+    const {
+      username,
+      password,
+    } = req.body;
+
+    let errors = [];
+    const validatorErrors = validationResult(req);
+
+    if (validatorErrors.isEmpty()) {
+
+      const user = await db.User.findOne({ where: { username: { [Op.iLike]: username } } });
+      if (user !== null) {
+        const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+        if (passwordMatch) {
+          loginUser(req, res, user);
+          return;
+          // res.redirect('/');
+        }
+      }
+      errors.push('Please enter a valid username and password.');
+    } else {
+      errors = validatorErrors.array().map((error) => error.msg);
+    }
+
     res.render('user-login', {
       title: 'Login',
+      username,
+      errors,
       csrfToken: req.csrfToken(),
     });
-  });
+  }));
 
-  const loginValidators = [
-    check('username')
-      .exists({ checkFalsy: true })
-      .withMessage('Please enter your username.'),
-    check('password')
-      .exists({ checkFalsy: true })
-      .withMessage('Please enter your password.'),
-  ];
+router.post('/logout', (req, res) => {
+  logoutUser(req, res);
+  return res.redirect('/');
+});
 
-  router.post('/login', csrfProtection, loginValidators,
-    asyncHandler(async (req, res) => {
-      const {
-        username,
-        password,
-      } = req.body;
-
-      let errors = [];
-      const validatorErrors = validationResult(req);
-
-      if (validatorErrors.isEmpty()) {
-
-        const user = await db.User.findOne({ where: {username: {[Op.iLike]: username}}});
-        if (user !== null) {
-          const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
-          if (passwordMatch) {
-            loginUser(req, res, user);
-            return;
-            // res.redirect('/');
-          }
-        }
-        errors.push('Please enter a valid username and password.');
-      } else {
-        errors = validatorErrors.array().map((error) => error.msg);
-      }
-
-      res.render('user-login', {
-        title: 'Login',
-        username,
-        errors,
-        csrfToken: req.csrfToken(),
-      });
-    }));
-
-    router.post('/logout', (req, res) => {
-      logoutUser(req, res);
-      return res.redirect('/');
-    });
-
-    router.get('/demo', async(req, res) => {
-      const demoUser = await db.User.findByPk(1);
-      loginUser(req, res, demoUser);
-    })
+router.get('/demo', async (req, res) => {
+  const demoUser = await db.User.findByPk(1);
+  loginUser(req, res, demoUser);
+})
 
 
 module.exports = router;

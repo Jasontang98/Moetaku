@@ -1,0 +1,20 @@
+extends layout.pug
+include utils.pug
+block content
+    table
+        thead
+            tr
+                th Article
+                th Author
+                th Date Created
+        tbody
+            each article in articles
+                tr
+                    td
+                        a(href=`./articles/${article.id}`)=article.title 
+                    td=`${article.User.firstName} ${article.User.lastName}`
+                    td=article.createdAt.toDateString()
+    
+            //- ^this is all under ethanFriday4 branch!
+
+       
