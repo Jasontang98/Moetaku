@@ -8,30 +8,36 @@ block content
     div(id='article-container')
         h1(id='article_title')= title
         div(id= 'author_date')
-            h3= authorName
+            h3= `by ${authorName}`
             h4= date
         if(imageURL)
             img(id='article_img' src=imageURL)
         p= body
-        if(isAuthor)
-            div(id='article-edit-buttons')
-                a(href=`/articles/${id}/edit` id='article_edit') Edit
-                form(action=`/articles/${id}/delete` method='post')
-                    button(type='submit' id='article_delete' class='edit_delete_button') Delete
-
+    if(isAuthor)
+        div(id='article-edit-buttons')
+            a(href=`/articles/${id}/edit` id='article_edit') Edit
+            form(action=`/articles/${id}/delete` method='post')
+                button(type='submit' id='article_delete' class='edit_delete_button') Delete
     div(id='comment_container')
         h2(id='comment_header') Comments
         each comment in comments
-            div(id= `${comment.id}-comment-div`)= comment.body
-            div= comment.User.username
-            div= comment.updatedAt.toDateString()
+            div(id= `${comment.id}-comment-div` class='actual_comment')= comment.body
+                div(id= 'comment_author_date')
+                    div= comment.User.username
+                    div= comment.updatedAt.toDateString()
             if(locals.user && locals.user.id === comment.user_id)
-                button(id= `edit-comment-${comment.id}-${id}` class='comment_edit_button edit_delete_button') Edit
-                button(id= `delete-comment-${comment.id}-${id}` class='comment_delete_button edit_delete_button') Delete
-                form(class='hidden' id=`edit-form-${comment.id}`)
-                    textarea(id=`${comment.id}-comment-edit`, cols="30", rows="5")= comment.body
-                    button(id=`${comment.id}-edit` class='comment_edit_submit') Submit
+                div(id='comment_edit_container')
+                    div(id='comment-edit-buttons')
+                        button(id= `edit-comment-${comment.id}-${id}` class='comment_edit_button edit_delete_button_com') Edit
+                        button(id= `delete-comment-${comment.id}-${id}` class='comment_delete_button edit_delete_button_com') Delete
+                    form(class='hidden' id=`edit-form-${comment.id}`)
+                        div(id='edit_comment_form')
+                            textarea(id=`${comment.id}-comment-edit`, class='comment_edit_box', cols="30", rows="5")= comment.body
+                            div(id='submit_container')
+                                button(id=`${comment.id}-edit` class='comment_edit_submit edit_delete_button_com') Submit Changes
         if locals.authenticated
             form(id='comment_form')
-                textarea(id="comment_create", placeholder="Add a comment...")
-                button(id=`${id}-${user_id}-comment` class='comment_button edit_delete_button') Submit
+                div(id='create_comment_container')
+                    textarea(id="comment_create_text", placeholder="Add a comment...")
+                    div(id='submit_comment_button')
+                        button(id=`${id}-${user_id}-comment` class='comment_button edit_delete_button') Add Comment
