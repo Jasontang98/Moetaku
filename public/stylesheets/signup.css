@@ -63,10 +63,10 @@ h1 {
 } */
 
 .div3 {
-    margin-top: 20px;
-    border: solid 1px #fac017;
-    padding:10px;
+    margin-top: 12px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -74,7 +74,6 @@ h1 {
     color: white;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 20px;
     margin-top: 5px;
 }
 
@@ -93,6 +92,7 @@ h1 {
 }
 
 #demoaccount {
+    margin-top:12px;
     font-size: small;
     font-weight: bold;
     text-align: center;

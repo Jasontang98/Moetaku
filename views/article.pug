@@ -21,10 +21,10 @@ block content
     div(id='comment_container')
         h2(id='comment_header') Comments
         each comment in comments
-            div(id= `${comment.id}-comment-div` class='actual_comment')= comment.body
-                div(id= 'comment_author_date')
-                    div= comment.User.username
-                    div= comment.updatedAt.toDateString()
+            div(id=`${comment.id}-comment-div` class='actual_comment')= comment.body
+                div(id='comment_author_date')
+                    div(id=`${comment.id}-comment-author`)= comment.User.username
+                    div(id=`${comment.id}-comment-updated`)= comment.updatedAt.toDateString()
             if(locals.user && locals.user.id === comment.user_id)
                 div(id='comment_edit_container')
                     div(id='comment-edit-buttons')

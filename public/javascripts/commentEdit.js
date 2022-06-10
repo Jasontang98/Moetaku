@@ -32,11 +32,17 @@ const button = editButtons[i];
 
             if (data.message === 'Success!') {
                 const commentDiv = document.getElementById(`${data.comment.id}-comment-div`);
+                const commentAuthor = document.getElementById(`${data.comment.id}-comment-author`);
+                console.log(commentAuthor)
+                // const commentUpdated = document.getElementById(`${data.comment.id}-comment-updated`);
+
                 const updatedDate = data.comment.updatedAt;
                 const newDate = new Date(updatedDate);
 
+                commentDiv.innerHTML = data.comment.body;
+                commentAuthor.innerText = data.username;
+                // commentUpdated.innerText = newDate.toDateString();
 
-                commentDiv.innerHTML = `${data.comment.body} <div>${data.username}</div> <div>${newDate.toDateString()}</div>`;
                 commentForm.classList.add('hidden');
             }
 
