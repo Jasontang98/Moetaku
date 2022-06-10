@@ -5,7 +5,6 @@ h1 {
 #main-articles-container * {
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
-
 }
 
 .article-title {
@@ -20,6 +19,66 @@ h1 {
     align-items: center;
 }
 
+#splash-div {
+
+    border-radius: 4px;
+    height: 250px;
+    width: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 128, 160);
+    margin-bottom: 10px;
+}
+
+#splash-logo-subheading {
+    text-align: center;
+    color: #fac017;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#git-gud {
+    padding-top: 20px;
+    width: 400px;
+    height: 125px;
+    font-size: 45pt;
+    font-weight: bolder;
+    text-shadow: 5px 5px 5px black;
+    padding-bottom: 30px;
+}
+
+#click-to-start {
+    text-align: center;
+    margin: 10px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #fac017;
+    color: rgb(0, 128, 160);
+    text-decoration: none;
+    height: 45px;
+    width: 90px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+}
+
+#click-to-start:hover {
+    color: #fac017;
+    background-color: rgba(0, 128, 160, .1);
+    border: solid 2px #fac017;
+}
+
+#click-to-start:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+
+
 #main-articles-container {
     display: flex;
     flex-direction: column;
@@ -27,8 +86,7 @@ h1 {
     margin-bottom: 80px;
     min-width: 750px;
     max-width: 750px;
-    /* border-left: 1px solid grey;
-    border-right: 1px solid grey; */
+    margin-bottom: 10px;
 }
 
 #main-articles-container>span {
