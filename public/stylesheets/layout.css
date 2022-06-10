@@ -112,6 +112,22 @@ h1 {
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 }
 
+#nav_login:hover,
+#nav_signup:hover {
+  color:#fac017;
+  background-color:rgb(0, 128, 160);
+  border: solid 2px #fac017;
+}
+
+#nav_login:active,
+#nav_signup:active {
+  transform: translate(3px, 3px);
+  box-shadow:none;
+
+
+}
+
+
 #demo_link{
   font-weight: bold;
   color:#fac017;
