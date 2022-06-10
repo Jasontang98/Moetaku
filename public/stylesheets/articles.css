@@ -222,7 +222,7 @@
     justify-content: center;
 }
 
-#comment_create_text {
+#comment_create {
     margin-top: 10px;
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
@@ -232,7 +232,7 @@
     height:100px;
     background-color: rgba(250, 192, 23, .4);
 }
-#comment_create_text:focus {
+#comment_create:focus {
     outline: none;
     border: solid 2px rgb(0, 128, 160);
 }

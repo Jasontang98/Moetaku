@@ -38,6 +38,6 @@ block content
         if locals.authenticated
             form(id='comment_form')
                 div(id='create_comment_container')
-                    textarea(id="comment_create_text", placeholder="Add a comment...")
+                    textarea(id="comment_create", placeholder="Add a comment...")
                     div(id='submit_comment_button')
                         button(id=`${id}-${user_id}-comment` class='comment_button edit_delete_button') Add Comment
