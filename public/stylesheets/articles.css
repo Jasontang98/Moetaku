@@ -7,6 +7,7 @@
     flex-direction: column;
     max-width: 750px;
     margin: auto;
+    margin-top: 50px;
 }
 
 #article-container * {
@@ -94,6 +95,8 @@
 }
 
 #comment_header {
+    width:750px;
+    margin:auto;
     margin-top: 20px;
     font-weight: bold;
     font-size: 25px;
@@ -106,17 +109,21 @@
     flex-direction: column;
     width: 750px;
     margin: auto;
-    position: relative;
-    min-height: 100vh;
-
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+margin-bottom:10px;
 }
 
+
 #comment_author_date {
+    margin-top:8px;
     display: flex;
     font-style: italic;
     justify-content: right;
     color: gray;
     gap: 20px;
+    margin-right:10px;
 
 }
 
@@ -131,6 +138,7 @@
     width: 750px;
     padding: 20px;
     border-radius: 5px;
+    font-size:11pt;
 }
 
 
@@ -211,11 +219,11 @@
 }
 
 #create_comment_container {
-    margin-top:10px;
     border-top: solid 2px rgb(0, 128, 160);
     width: 750px;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
 
 #submit_comment_button {
@@ -239,11 +247,15 @@
 }
 
 .comment_button {
-    margin-top: 5px;
+    margin-top: 10px;
     margin-bottom: 20px;
     width: 325px;
 }
 
 .content-wrap {
     padding-bottom: 3rem;
+  }
+
+  #comment_form{
+    height:280px;
   }
