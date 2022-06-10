@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../db/models');
+const { Op } = require('sequelize');
 
 const { loginUser, logoutUser } = require('../auth');
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -137,7 +138,7 @@ router.post('/signup', csrfProtection, userValidators,
 
       if (validatorErrors.isEmpty()) {
 
-        const user = await db.User.findOne({ where: { username } });
+        const user = await db.User.findOne({ where: {username: {[Op.iLike]: username}}});
         if (user !== null) {
           const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
           if (passwordMatch) {
