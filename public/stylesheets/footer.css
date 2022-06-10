@@ -34,11 +34,16 @@
     width: 100%;
     position: absolute;
     bottom: 0;
+    height:60px;
+}
+#about{
+    font-weight:bolder;
 }
 
   #about,
   .us {
-    padding-left: 10px;
-    padding-right: 10px;
+    font-size:10pt;
+    padding-left: 15px;
+    padding-right: 15px;
     padding: auto;
   }
