@@ -17,10 +17,17 @@ module.exports = (sequelize, DataTypes) => {
       references: {model: 'Users'}
     }
   }, {});
-  Article.associate = function(models) {
+  Article.associate = function (models) {
     // associations can be defined here
-    Article.belongsTo(models.User, {foreignKey: 'user_id'})
-    Article.hasMany(models.Comment, {foreignKey: 'article_id'})
+    Article.belongsTo(models.User, { foreignKey: 'user_id' })
+    Article.hasMany(models.Comment, {
+      foreignKey: 'article_id',
+      onDelete: 'cascade',
+      hooks: true
+    })
   };
+
+
+
   return Article;
 };
