@@ -25,7 +25,6 @@
 
 .footer {
     display: flex;
-
     justify-content: row;
     justify-content: center;
     align-items: center;
@@ -34,7 +33,7 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    height:60px;
+    height:50px;
 }
 #about{
     font-weight:bolder;

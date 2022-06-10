@@ -12,7 +12,6 @@ h1 {
     padding-bottom: 20px;
 }
 
-
 #index-container {
     display: flex;
     flex-direction: column;
@@ -20,7 +19,7 @@ h1 {
 }
 
 #splash-div {
-
+    margin-top:15px;
     border-radius: 4px;
     height: 250px;
     width: 750px;
@@ -41,22 +40,47 @@ h1 {
 }
 
 #git-gud {
+    -webkit-text-stroke: 1px rgb(0, 128, 160);
+}
+
+#git-gud {
+    color: rgb(0, 128, 160);
+
+    text-decoration: outline;
     padding-top: 20px;
     width: 400px;
     height: 125px;
     font-size: 45pt;
     font-weight: bolder;
-    text-shadow: 5px 5px 5px black;
     padding-bottom: 30px;
+    text-shadow:0px 0px 5px #fac017,
+    0px 0px 10px #fac017,
+    0px 0px 15px #fac017,
+    0px 0px 20px #fac017,
+    0px 0px 25px #fac017,
+    0px 0px 30px #fac017,
+    0px 0px 35px #fac017;
+
+    /* animation: glow 1s ease-in-out infinite alternate; */
+
 }
+
+/* @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fac017, 0 0 20px #fac017, 0 0 30px #fac017, 0 0 40px #fac017, 0 0 50px #fac017, 0 0 60px #fac017, 0 0 70px #fac017;
+    }
+    to {
+      text-shadow: 0 0 20px #ae8712, 0 0 30px #ae8712, 0 0 40px #ae8712, 0 0 50px #ae8712, 0 0 60px #ae8712, 0 0 70px #ae8712, 0 0 80px #ae8712;
+    }
+  } */
+
 
 #git-gud>div {
     margin-bottom: 10px;
 }
 
 #click-to-start {
-    text-align: center;
-    margin: 25px;
+    margin: 10px;
     font-weight: bolder;
     display: flex;
     justify-content: center;
@@ -65,8 +89,8 @@ h1 {
     background-color: #fac017;
     color: rgb(0, 128, 160);
     text-decoration: none;
-    height: 45px;
-    width: 90px;
+    height: 28px;
+    width: 85px;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 }
 
@@ -81,32 +105,35 @@ h1 {
     box-shadow: none;
 }
 
+#click-to-start-div {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 
 #main-articles-container {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-    width: 75%;
-    margin-bottom: 80px;
-    min-width: 750px;
-    max-width: 750px;
-    margin-bottom: 10px;
+    width: 750px;
+    margin-bottom: 15px;
 }
 
 #main-articles-container>span {
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid lightgrey;
-    margin-top: 5px;
-    padding-bottom: 5px;
-
+    margin-top: 20px;
+    padding-bottom: 20px;
 }
 
 
 #article-author-body {
-
     width: 500px
 }
 
