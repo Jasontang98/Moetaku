@@ -26,11 +26,27 @@ router.get('/', csrfProtection, async (req, res, next) => {
 });
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => {
-  const user = await User.findByPk(req.params.id)
+  const user = await User.findByPk(req.params.id, {
+    order: [
+      ['id', 'DESC']
+    ]
+  })
+
+  const articles = await Article.findAll({
+    where: {
+      user_id: user.id
+    },
+    include: [User],
+    order: [
+      ['id', 'DESC']
+    ]
+  });
+
 
   res.render('user-profile', {
     title: `${user.firstName} ${user.lastName}'s profile`,
     user,
+    articles,
     csrfToken: req.csrfToken()
   });
 }));

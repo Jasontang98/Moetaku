@@ -2,3 +2,19 @@ extends layout.pug
 
 block content 
     div=`${user.firstName} ${user.lastName}`
+    div=user.username
+    table
+        thead
+            tr
+                th Article
+                th Date Created
+            tbody
+                each article in articles
+                    tr 
+                        td=article.title
+                        td=article.createdAt.toDateString()
+                //- each article in articles
+                //-     tr
+                //-         td
+                //-             a(href=`./articles/${article.id}`)=use
+                //-         td=user.article.createdAt.toDateString()
