@@ -99,7 +99,6 @@
     font-size: 25px;
     border-bottom: solid 2px #fac017;
     padding-bottom: 8px;
-    margin-bottom: 10px;
 }
 
 #comment_container {
@@ -113,7 +112,6 @@
 }
 
 #comment_author_date {
-
     display: flex;
     font-style: italic;
     justify-content: right;
