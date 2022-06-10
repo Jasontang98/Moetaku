@@ -1,3 +1,23 @@
+#title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.bio {
+    background-color: gray;
+    border-radius: 8px;
+    padding: 1px 1em 1px 1em;
+    margin: auto;
+    width: 750px;
+}
+
+.paragraph {
+    color: aqua;
+    font-size: 20px;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
@@ -6,13 +26,20 @@ body {
 
 .about-container {
     margin: 2rem auto;
-    max-width: calc(100% - 80px);
+
 }
 
 .body-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-areas: 'left leftmid rightmid right';
     gap: 2rem;
+    width: 750px;
+    height: 300px;
+}
+
+.about-container {
+    display: flex;
+    justify-content: center;
 }
 
 .display-img {
@@ -24,37 +51,23 @@ body {
 .display-img img {
     max-width: 100%;
     height: auto;
-    border-radius: 20px 20px 0 0;
+    border-radius: 8px 8px 0 0;
 }
 
 .card {
     background-color: grey;
-    border-radius: 20px;
-    /* transition: 0.3s; */
+    border-radius: 8px;
 }
 
-/* .card:hover {
-    box-shadow: 0 4px 20px 0 rgba(34, 68, 123, 0);
-} */
+a:hover {
+    color: blue;
+}
 
 .body-content {
     padding: 2rem;
 }
 
-
-
-
-
-#title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
+.jason-github {
+    padding-top: 0.25rem;
+    padding: 0.5rem;
 }
