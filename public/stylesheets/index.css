@@ -50,9 +50,13 @@ h1 {
     padding-bottom: 30px;
 }
 
+#git-gud>div {
+    margin-bottom: 10px;
+}
+
 #click-to-start {
     text-align: center;
-    margin: 10px;
+    margin: 25px;
     font-weight: bolder;
     display: flex;
     justify-content: center;
