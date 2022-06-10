@@ -18,8 +18,8 @@ block content
             a(href=`/articles/${id}/edit` id='article_edit') Edit
             form(action=`/articles/${id}/delete` method='post')
                 button(type='submit' id='article_delete' class='edit_delete_button') Delete
+    h2(id='comment_header') Comments
     div(id='comment_container' class= "content-wrap")
-        h2(id='comment_header') Comments
         each comment in comments
             div(id=`${comment.id}-comment-div` class='actual_comment')= comment.body
                 div(id='comment_author_date')
@@ -35,7 +35,7 @@ block content
                             textarea(id=`${comment.id}-comment-edit`, class='comment_edit_box', cols="30", rows="5")= comment.body
                             div(id='submit_container')
                                 button(id=`${comment.id}-edit` class='comment_edit_submit edit_delete_button_com') Submit Changes
-        if locals.authenticated
+    if locals.authenticated
             form(id='comment_form')
                 div(id='create_comment_container')
                     textarea(id="comment_create", placeholder="Add a comment...")
