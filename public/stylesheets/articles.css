@@ -256,3 +256,7 @@
 .content-wrap {
     padding-bottom: 3rem;
   }
+
+  #comment_form{
+    height:280px;
+  }

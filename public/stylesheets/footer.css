@@ -25,14 +25,14 @@
 
 .footer {
     display: flex;
-    margin-top:35px;
+
     justify-content: row;
     justify-content: center;
     align-items: center;
     background-color: rgb(0, 128, 160);
     color: #fac017;
     width: 100%;
-    position: relative;
+    position: absolute;
     bottom: 0;
 }
 
