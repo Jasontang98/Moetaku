@@ -1,4 +1,4 @@
-#footer {
+/* #footer {
     width: 100%;
     background-color: #fcfcfc;
     color: black;
@@ -17,11 +17,11 @@
     justify-content: center;
     align-items: center;
     margin: 10px;
-}
+} */
 
-#about:hover {
+/* #about:hover {
     color: #1c3bed;
-}
+} */
 
 .footer {
     display: flex;
