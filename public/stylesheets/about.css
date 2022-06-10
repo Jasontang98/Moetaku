@@ -2,11 +2,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    color: rgb(0, 128, 160)
 }
 
 .bio {
-    background-color: gray;
+    background-color: rgb(0, 128, 160);
     border-radius: 8px;
     padding: 1px 1em 1px 1em;
     margin: auto;
@@ -14,7 +14,7 @@
 }
 
 .paragraph {
-    color: aqua;
+    color: #fac017;
     font-size: 20px;
 }
 
@@ -51,23 +51,40 @@ body {
 .display-img img {
     max-width: 100%;
     height: auto;
-    border-radius: 8px 8px 0 0;
+    border-radius: 12px 12px 0 0;
 }
 
 .card {
-    background-color: grey;
-    border-radius: 8px;
+    background-color: rgb(0, 128, 160);
+    border-radius: 12px;
 }
 
 a:hover {
-    color: blue;
+    color: #fac017;
 }
 
 .body-content {
-    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: auto;
 }
 
 .jason-github {
     padding-top: 0.25rem;
     padding: 0.5rem;
+}
+
+.body-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    color: #fac017;
+}
+
+.body {
+    display: flex;
+    padding: auto;
+    color: #fac017;
 }
