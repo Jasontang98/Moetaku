@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/models');
-const { User, Comment } = require('../db/models')
+const { User, Comment, Article } = require('../db/models')
 const { requireAuth } = require('../auth')
 
 const { csrfProtection, asyncHandler } = require('./utils');
@@ -17,6 +17,19 @@ const userValidators = [
         .exists({ checkFalsy: true })
         .withMessage('Please enter something.')
 ]
+//articles endpoint
+router.get('/', asyncHandler(async (req, res, next) => {
+
+    const articles = await Article.findAll({
+        include: [User],
+        order: [
+            ['id', 'DESC']
+        ]
+    });
+
+    res.render('articles-view', { articles });
+}));
+
 
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {

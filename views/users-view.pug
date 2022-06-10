@@ -1,0 +1,16 @@
+extends layout.pug
+include utils.pug
+block content
+    table
+        thead
+            tr
+                th User Id
+                th Full Name
+        tbody
+            each user in users
+                tr
+                    td
+                        a(href=`./users/${user.id}`)=user.id 
+                    td
+                        a(href=`./users/${user.id}`)=`${user.firstName} ${user.lastName}`
+                        //- ^this is all under ethanFriday4 branch!
