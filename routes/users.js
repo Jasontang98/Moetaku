@@ -27,7 +27,7 @@ router.get('/', csrfProtection, async (req, res, next) => {
 
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
   let ownProfile = false;
-  if(req.session.auth.userId.toString() === req.params.id) ownProfile = true;
+  if(req.session.auth && req.session.auth.userId.toString() === req.params.id) ownProfile = true;
 
   const userProfile = await User.findByPk(req.params.id, {
     order: [

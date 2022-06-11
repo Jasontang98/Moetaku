@@ -2,13 +2,25 @@ extends layout.pug
 
 block content
     link(rel="stylesheet" href="/stylesheets/user-profile.css")
-    //- if(locals.user && locals.user.id === userProfile.id)
-    //-     div(id="user_profile")
-    //-         div
-    //-             div=`First Name: ${userProfile.firstName}`
-    //-             div=`Last Name: ${userProfile.lastName}`
-    //-             div= `Username: ${userProfile.username}`
-    //-             div= `Email: ${userProfile.email}`
+    if(locals.user && locals.user.id === userProfile.id)
+        h1(id='profile_header')= `${userProfile.username}'s Profile`
+        div(id="user_profile")
+            div(id= 'one')
+                div(id= 'onea') First Name:
+                div(id= 'oneb')= `${userProfile.firstName}`
+            div(id= 'two')
+                div(id= 'twoa') Last Name:
+                div(id= 'twob')= `${userProfile.lastName}`
+            div(id= 'three')
+                div(id= 'threea') Email:
+                div(id= 'threeb')= `${userProfile.email}`
+            div(id= 'four')
+                div(id= 'foura') Username:
+                div(id= 'fourb')= `${userProfile.username}`
+            div(id= 'five')
+                div(id= 'fivea') Articles Written:
+                div(id= 'fiveb')= `${articlesProfile.length}`
+            div(id= 'six')
     div
         div(id='written_table_header')=`Articles written by ${userProfile.firstName} ${userProfile.lastName}`
         table(id='written_table')
