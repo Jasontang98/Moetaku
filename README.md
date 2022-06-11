@@ -18,13 +18,20 @@ Documentation:
 - [Moetaku Database Schema](https://github.com/Jasontang98/Moetaku/wiki/Database-Schema)
 
 Splash Page/ Articles
-	![alt text](https://user-images.githubusercontent.com/51832487/173154277-145be752-624e-4380-93db-6932925cb355.png)
 
-Article Create
-screen grab of article create form
+![splash page](https://user-images.githubusercontent.com/51832487/173195212-83059e16-c31c-447d-8544-83997478426e.png)
 
-Article View
-screen grab of article page with comment form and edit/delete options showing on appropriate comments
+
+
+Article Write; view shows header and footer, present on all pages
+
+![write form](https://user-images.githubusercontent.com/51832487/173195360-8a2636c5-cc23-4052-8c99-3fe83517acd7.png)
+
+
+Article View 
+
+![Article View](https://user-images.githubusercontent.com/51832487/173195683-a8ab8278-71cc-4906-8913-796a8b12f3fe.png)
+
 
 **Features:**
 - Sign-up and login
