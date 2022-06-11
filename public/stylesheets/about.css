@@ -88,3 +88,8 @@ a:hover {
     padding: auto;
     color: #fac017;
 }
+
+#about_link{
+    font-size: 16pt;
+    text-decoration:overline;
+}

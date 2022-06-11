@@ -1,0 +1,36 @@
+#articles_link{
+    font-size: 16pt;
+    text-decoration:overline;
+}
+
+#articles_view_table{
+    width: 750px;
+    margin: auto;
+}
+
+#table_head{
+    color:rgb(0,128,160);
+    height: 50px;
+    margin: 10px;
+}
+
+
+.table_row * {
+    font-size: 11pt;
+    border-radius: 8px;
+
+}
+.table_row:nth-child(even) {
+    background-color: rgba(250, 192, 23, .4);
+}
+.table_row:nth-child(odd) {
+    background-color: rgba(0, 128, 160, .5);
+}
+
+.table_title, .table_author, .table_date{
+   padding:8px;
+}
+
+.table_date{
+    font-style:italic;
+}

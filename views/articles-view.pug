@@ -1,17 +1,18 @@
 extends layout.pug
 include utils.pug
 block content
-    table
+    link(rel="stylesheet" href="/stylesheets/articles-view.css")
+    table(id='articles_view_table')
         thead
-            tr
-                th Article
+            tr(id='table_head')
+                th Title
                 th Author
-                th Date Created
+                th Date
         tbody
             each article in articles
-                tr
-                    td
-                        a(href=`./articles/${article.id}`)=article.title 
-                    td=`${article.User.firstName} ${article.User.lastName}`
-                    td=article.createdAt.toDateString()
-                        //- ^this is all under ethanFriday5 branch!
+                 tr(class='table_row')
+                        td(class= 'table_title')
+                            a(href=`./articles/${article.id}`)= article.title
+                        td(class= 'table_author')
+                            a(href=`./users/${article.User.id}`)=`${article.User.firstName} ${article.User.lastName}`
+                        td(class= 'table_date')= article.createdAt.toDateString()

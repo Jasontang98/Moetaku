@@ -8,7 +8,8 @@ block content
     div(id='article-container')
         h1(id='article_title')= title
         div(id= 'author_date')
-            h3= `by ${authorName}`
+            div by
+                a(href=`./users/${user_id}`)=`${authorName}`
             h4= date
         if(imageURL)
             img(id='article_img' src=imageURL)

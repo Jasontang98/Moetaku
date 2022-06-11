@@ -36,9 +36,7 @@ app.use(
   })
 );
 
-app.get('/about', async(req, res) => {
-  res.render('about')
-})
+
 
 // create Session table if it doesn't already exist
 store.sync();
@@ -47,6 +45,9 @@ app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
+app.get('/about', async(req, res) => {
+  res.render('about')
+})
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

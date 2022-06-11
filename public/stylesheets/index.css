@@ -144,7 +144,7 @@ h1 {
 
 #author-name {
     text-decoration: none;
-
+    font-style: italic;
     color: gray;
 }
 
@@ -175,4 +175,9 @@ img {
 
 .footer{
     position:relative;
+}
+
+#home_link{
+    font-size: 16pt;
+    text-decoration:overline;
 }
