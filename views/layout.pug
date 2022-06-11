@@ -22,6 +22,10 @@ html
             a(href='/articles/create' class="center_link" id='create_link') Write
             div |
             a(href="/about" class="center_link" id='about_link') About
+          else
+              a(href='/' class="center_link" id='home_link') Home
+              div |
+              a(href="/about" class="center_link" id='about_link') About
       div(class='nav_right')
         if locals.authenticated
           span(class='nav_button')

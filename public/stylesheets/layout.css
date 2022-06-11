@@ -108,6 +108,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 25px;
 }
 
 #nav_login,
@@ -229,5 +230,5 @@ font-style:normal;
 
 #exclamation{
   font-style:normal;
-  font-weght: bold;
+  font-weight: bold;
 }
