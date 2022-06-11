@@ -1,0 +1,35 @@
+#users_link{
+    font-size: 16pt;
+    text-decoration:overline;
+}
+
+#users_view_table{
+    width: 325px;
+    margin: auto;
+}
+
+#table_head{
+    color:rgb(0,128,160);
+    height: 50px;
+    margin: 10px;
+}
+
+
+
+.user_row * {
+    font-size: 11pt;
+    border-radius: 8px;
+    height:40px;
+
+}
+.user_row:nth-child(even) {
+    background-color: rgba(250, 192, 23, .4);
+}
+.user_row:nth-child(odd) {
+    background-color: rgba(0, 128, 160, .5);
+}
+
+
+.name_link{
+    padding:20px;
+}

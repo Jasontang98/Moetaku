@@ -15,13 +15,13 @@ html
           if locals.authenticated
             a(href='/' class="center_link" id='home_link') Home
             div |
-            a(href='/articles' class="center_link" id='articles_link') Articles
+            a(href='/articles' class="center_link" id='articles_link') Browse
+            //- div |
+            //- a(href='/Users' class="center_link" id='users_link') Authors
             div |
-            a(href='/Users' class="center_link" id='users_link') Users
+            a(href='/articles/create' class="center_link" id='create_link') Write
             div |
-            a(href='/articles/create' class="center_link" id='create_link') Create
-            div |
-            a(href=`/Users/${user.id}` class="center_link" id='profile_link') Profile
+            a(href="/about" class="center_link" id='about_link') About
       div(class='nav_right')
         if locals.authenticated
           span(class='nav_button')
@@ -38,7 +38,6 @@ html
     block content
     div(id='footer_seperater')
       div(id="footer_container")
-        a(id="about" href="/about") About
         div
         p(class= "us") Ethan Browning
         div

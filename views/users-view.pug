@@ -1,16 +1,14 @@
 extends layout.pug
 include utils.pug
 block content
-    table
+    link(rel="stylesheet" href="/stylesheets/users-view.css")
+    table(id='users_view_table')
         thead
-            tr
-                th User Id
-                th Full Name
+            tr(id='table_head')
+                //- th Name
         tbody
             each user in users
-                tr
+                tr(class='user_row')
                     td
-                        a(href=`./users/${user.id}`)=user.id 
-                    td
-                        a(href=`./users/${user.id}`)=`${user.firstName} ${user.lastName}`
+                        a(class='name_link' href=`./users/${user.id}`)=`${user.firstName} ${user.lastName}`
                         //- ^this is all under ethanFriday4 branch!

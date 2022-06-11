@@ -1,20 +1,21 @@
 extends layout.pug
 
-block content 
-    div=`${user.firstName} ${user.lastName}`
-    div=user.username
-    table
-        thead
-            tr
-                th Article
-                th Date Created
-            tbody
-                each article in articles
-                    tr 
-                        td=article.title
-                        td=article.createdAt.toDateString()
-                //- each article in articles
-                //-     tr
-                //-         td
-                //-             a(href=`./articles/${article.id}`)=use
-                //-         td=user.article.createdAt.toDateString()
+block content
+    link(rel="stylesheet" href="/stylesheets/user-profile.css")
+    //- if(locals.user && locals.user.id === userProfile.id)
+    //-     div(id="user_profile")
+    //-         div
+    //-             div=`First Name: ${userProfile.firstName}`
+    //-             div=`Last Name: ${userProfile.lastName}`
+    //-             div= `Username: ${userProfile.username}`
+    //-             div= `Email: ${userProfile.email}`
+    div
+        div(id='written_table_header')=`Articles written by ${userProfile.firstName} ${userProfile.lastName}`
+        table(id='written_table')
+                thead
+                tbody
+                    each article in articlesProfile
+                        tr(class='table_row')
+                            td(class= 'table_title')
+                                a(href=`../articles/${article.id}`)= article.title
+                            td(class= 'table_date')=article.createdAt.toDateString()

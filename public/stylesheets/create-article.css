@@ -93,15 +93,17 @@ font-weight: bold;
 }
 
 #cancel:hover {
-    color: rgb(0, 128, 160);
-    background-color: white;
-    border: solid 2px rgb(0, 128, 160);
+    color: #fac017;
+    box-sizing: border-box;
+    background-color: rgba(0, 128, 160);
+    border: solid 2px #fac017;
 }
 
 #create:hover {
-    color: rgb(0, 128, 160);
-    background-color: white;
-    border: solid 2px rgb(0, 128, 160);
+    color: #fac017;
+    box-sizing: border-box;
+    background-color: rgba(0, 128, 160);
+    border: solid 2px #fac017;
 }
 
 #cancel:active {
@@ -125,4 +127,9 @@ font-weight: bold;
     padding: 15px;
     margin-bottom: 10px;
     margin-top: 10px;
+}
+
+#create_link{
+    font-size: 16pt;
+    text-decoration:overline;
 }

@@ -176,3 +176,8 @@ img {
 .footer{
     position:relative;
 }
+
+#home_link{
+    font-size: 16pt;
+    text-decoration:overline;
+}

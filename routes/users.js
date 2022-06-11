@@ -25,16 +25,19 @@ router.get('/', csrfProtection, async (req, res, next) => {
   });
 });
 
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => {
-  const user = await User.findByPk(req.params.id, {
+router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+  let ownProfile = false;
+  if(req.session.auth.userId.toString() === req.params.id) ownProfile = true;
+
+  const userProfile = await User.findByPk(req.params.id, {
     order: [
       ['id', 'DESC']
     ]
   })
 
-  const articles = await Article.findAll({
+  const articlesProfile = await Article.findAll({
     where: {
-      user_id: user.id
+      user_id: userProfile.id
     },
     include: [User],
     order: [
@@ -44,10 +47,8 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => 
 
 
   res.render('user-profile', {
-    title: `${user.firstName} ${user.lastName}'s profile`,
-    user,
-    articles,
-    csrfToken: req.csrfToken()
+    userProfile,
+    articlesProfile,
   });
 }));
 
