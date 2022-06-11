@@ -13,15 +13,15 @@ html
           div(class='slogan') Mo games, mo problems.
       div(class='nav_center')
           if locals.authenticated
-            a(href='/' class="center_link") Home
+            a(href='/' class="center_link" id='home_link') Home
             div |
-            a(href='/articles' class="center_link") Articles
+            a(href='/articles' class="center_link" id='articles_link') Articles
             div |
-            a(href='/Users' class="center_link") Users
+            a(href='/Users' class="center_link" id='users_link') Users
             div |
-            a(href='/articles/create' class="center_link") Create
+            a(href='/articles/create' class="center_link" id='create_link') Create
             div |
-            a(href=`/Users/${user.id}` class="center_link") Profile
+            a(href=`/Users/${user.id}` class="center_link" id='profile_link') Profile
       div(class='nav_right')
         if locals.authenticated
           span(class='nav_button')

@@ -79,7 +79,7 @@ h1 {
 }
 
 .nav_center {
-  min-width: 400px;
+  min-width: 450px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,13 +1,16 @@
 extends layout.pug
 include utils.pug
 block content
+  link(rel="stylesheet" href="/stylesheets/edit-article.css")
   +validationErrorSummary(errors)
-  form(action=`/articles/${article.id}/edit` method='post')
+  form(action=`/articles/${article.id}/edit` method='post' id='edit_article')
     input(type='hidden' name='_csrf' value=csrfToken)
-    +field('Title', 'title', article.title)
-    +field('ImageUrl', 'imageURL', article.imageURL)
-    label Body
-    textarea(name="body", cols="30", rows="10")= article.body
-    div
+    label(id='titlelabel') Title
+    +field(null, 'title', article.title, "text", "titleClass")
+    label(id='imglabel') Image URL *image must be a link with 'jpg' 'jpeg' or 'png' formatting
+    +field(null, 'imageURL', article.imageURL, "text", "urlClass")
+    label(id='contentlabel') Content
+    textarea(id="typeArticle", name="body", cols="30", rows="10")= article.body
+    div(class="cancelcreate")
       button(type='submit' id='edit') Submit
-      a(href='/' id='cancel') Cancel
+      a(href=`/articles/${article.id}` id='cancel') Cancel
