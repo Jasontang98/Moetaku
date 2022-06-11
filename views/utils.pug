@@ -1,13 +1,12 @@
 mixin validationErrorSummary(errors)
   if errors
-    div
+    div(class= "error")
       ul
         each error in errors
-          li= error
+          li(class= "errorList")= error
 
 
 mixin field(placeholder = "", fieldName, fieldValue, fieldType = 'text', className)
   div
     label(for=fieldName)= labelText
     input(placeholder=placeholder id=fieldName name=fieldName value=fieldValue class=className type = fieldType)
-    

@@ -2,6 +2,7 @@ extends layout.pug
 include utils.pug
 block content
   link(rel="stylesheet" href="/stylesheets/create-article.css")
+  link(rel="stylesheet" href="/stylesheets/errors.css")
   +validationErrorSummary(errors)
   form(id="createArticle" action='/articles/create' method='post')
     input(type='hidden' name='_csrf' value=csrfToken)

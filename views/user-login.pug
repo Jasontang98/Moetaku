@@ -3,6 +3,7 @@ include utils.pug
 
 block content
   link(rel="stylesheet" href="/stylesheets/login.css")
+  link(rel="stylesheet" href="/stylesheets/errors.css")
   +validationErrorSummary(errors)
   form(id='log-in-form' action='/users/login' method='post')
       img(src="https://fontmeme.com/permalink/220608/ed5d547c9dcb1bed5b470145dc5854b1.png")
