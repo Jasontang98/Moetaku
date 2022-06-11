@@ -25,7 +25,10 @@ html
       div(class='nav_right')
         if locals.authenticated
           span(class='nav_button')
-            div(id= 'welcome_message')= `Welcome ${user.firstName}!`
+            div(id='welcome_block') Welcome
+              a(href=`/users/${user.id}` id='profile_link')= `${user.username}`
+              div(id= 'exclamation') !
+              //- div(id= 'welcome_message')= `Welcome ${user.firstName}!`
             form(action='/users/logout' method='post')
                 button(type='submit' id='logout_button') Log Out
         else

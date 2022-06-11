@@ -1,24 +1,47 @@
 
 
-
-
-
+#profile_header{
+    margin:auto;
+    width: 750px;
+    display:flex;
+    justify-content: center;
+    font-weight: bold;
+    color: rgb(0, 128, 160);
+    margin-bottom:20px;
+    margin-top:20px;
+}
 
 #user_profile{
+
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 10px;
     background-color: rgba(250, 192, 23, .4);
-    width:325px;
+    width:750px;
     margin:auto;
     color:black;
     border-radius: 8px;
+    padding:20px;
 
 }
 
-#user_profile * {
-    font-size:12;
-    font-weight:bold;
-    padding:10px;
 
+
+
+#one, #two, #three, #four, #five{
+    display:flex;
+    justify-content: left;
+    padding:15px;
 }
+
+
+
+#oneb, #twob, #threeb, #fourb, #fiveb{
+    color: rgb(0, 128, 160);
+    margin-left: 5px;
+}
+
 
 
 #written_table_header{

@@ -169,7 +169,7 @@ h1 {
 }
 
 #welcome_message {
-  margin-right: 20px;
+
 
   color: #fac017;
   font-style: italic;
@@ -207,3 +207,27 @@ h1 {
 /* #footer_box{
   height:100px;
 } */
+
+
+#welcome_block{
+  color: #fac017;
+  font-style: italic;
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right:20px;
+}
+#profile_link{
+  color: #fac017;
+  margin-top:10px;
+  font-weight: bold;
+  margin-left:10px;
+  margin-right:1px;
+  height: 29px;
+font-style:normal;
+}
+
+#exclamation{
+  font-style:normal;
+  font-weght: bold;
+}
